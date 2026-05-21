@@ -1,0 +1,376 @@
+@startuml
+title world, location and weather domain model
+
+package world {
+    enum BiomeType {
+        TUNDRA
+        TAIGA
+        TEMPERATE_DECIDUOUS_FOREST
+        TEMPERATE_RAINFOREST
+        TEMPERATE_GRASSLAND
+        MEDITERRANEAN
+        HOT_DESERT
+        COLD_DESERT
+        SAVANNA
+        TROPICAL_SEASONAL_FOREST
+        TROPICAL_RAINFOREST
+        ALPINE
+        SWAMP
+        COASTAL
+        ICE_CAP
+    }
+
+    enum WaterBodyType {
+        OCEAN
+        SEA
+    }
+
+    class World {
+        - id: UUID
+        - name: String
+        - seed: long
+        - gameTicks: long
+    }
+
+    class Continent {
+        - id: UUID
+        - name: String
+        - code: String
+    }
+
+    class Country {
+        - id: UUID
+        - name: String
+        - iso: String
+        - capital: String
+    }
+
+    class Region {
+        - id: UUID
+        - name: String
+        - code: String
+    }
+
+    class Settlement {
+        - id: UUID
+        - geonameId: Long
+        - name: String
+        - coordinates: Coordinates
+        - population: int
+        - timezone: String
+        - biome: BiomeType
+    }
+
+    class Coordinates {
+        - latitude: double
+        - longitude: double
+        - elevation: int
+    }
+
+    class WaterBody {
+        - id: UUID
+        - name: String
+        - type: WaterBodyType
+    }
+
+    Continent "1" *-- "0..*" Country : contains
+    Country "1" *-- "0..*" Region : contains
+    Region "1" *-- "0..*" Settlement : contains
+}
+
+package location {
+    enum LocationCategory {
+        RESIDENTIAL
+        COMMERCIAL
+        MEDICAL
+        GOVERNMENT
+        EDUCATION
+        INDUSTRIAL
+        TRANSPORT
+        UTILITY
+        MILITARY
+        RELIGIOUS
+        RECREATIONAL
+        NATURAL
+        INFRASTRUCTURE
+        SURVIVAL
+        UNKNOWN
+    }
+
+    enum LocationType {
+        HOUSE
+        APARTMENT_BUILDING
+        HOTEL
+        FARM
+        CABIN
+
+        SUPERMARKET
+        GENERAL_STORE
+        PHARMACY
+        RESTAURANT
+        GAS_STATION
+
+        HOSPITAL
+        CLINIC
+
+        POLICE_STATION
+        FIRE_STATION
+        TOWN_HALL
+
+        SCHOOL
+        UNIVERSITY
+
+        WAREHOUSE
+        FACTORY
+        WORKSHOP
+        CONSTRUCTION_SITE
+
+        TRAIN_STATION
+        BUS_STATION
+        AIRPORT
+        PORT
+        PARKING_LOT
+
+        POWER_PLANT
+        WATER_TREATMENT_PLANT
+        RADIO_TOWER
+
+        MILITARY_BASE
+        CHECKPOINT
+        BUNKER
+
+        CHURCH
+        CEMETERY
+
+        PARK
+        FOREST
+        BEACH
+        CAMPSITE
+
+        ROAD
+        BRIDGE
+        TUNNEL
+
+        SAFEHOUSE
+        SHELTER
+        RUINS
+        UNKNOWN
+    }
+
+    enum LocationSize {
+        TINY
+        SMALL
+        MEDIUM
+        LARGE
+        HUGE
+    }
+
+    enum LocationCondition {
+        INTACT
+        WORN
+        DAMAGED
+        RUINED
+        BURNED
+        FLOODED
+        ABANDONED
+        OVERRUN
+        UNKNOWN
+    }
+
+    enum AccessState {
+        OPEN
+        CLOSED
+        LOCKED
+        BARRICADED
+        BLOCKED
+        COLLAPSED
+        RESTRICTED
+        UNKNOWN
+    }
+
+    abstract class Lock {
+        - id: UUID
+        - difficulty: int
+        - pickable: boolean
+        - breakable: boolean
+        - durability: int
+    }
+
+    class KeyLock {
+        - keyId: String
+    }
+
+    class CodeLock {
+        - code: String
+        - codeLength: int
+    }
+
+    class KeycardLock {
+        - keycardId: String
+        - accessLevel: int
+        - requiresPower: boolean
+    }
+
+    class Location {
+        - id: UUID
+        - name: String
+        - type: LocationType
+        - category: LocationCategory
+        - size: LocationSize
+        - condition: LocationCondition
+        - coordinates: Coordinates
+        - region: Region
+        - settlement: Settlement
+        - indoor: boolean
+        - enterable: boolean
+        - searchable: boolean
+        - generated: boolean
+    }  
+
+    class LootProfile {
+        - id: UUID
+        - foodChance: double
+        - medicineChance: double
+        - weaponChance: double
+        - toolChance: double
+        - fuelChance: double
+        - clothingChance: double
+        - junkChance: double   
+    }
+
+    class DangerProfile {
+        - id: UUID
+        - zombieRisk: double
+        - humanRisk: double
+        - animalRisk: double
+        - diseaseRisk: double
+        - structuralRisk: double
+        - fireRisk: double
+    }
+
+    class StructureProfile {
+        - id: UUID
+        - floors: int
+        - rooms: int
+        - hasBasement: boolean
+        - hasRoofAccess: boolean
+        - hasPower: boolean
+        - hasWater: boolean
+        - fortificationPotential: int 
+    }
+
+    class AccessProfile {
+        - id: UUID
+        - accessState: AccessState
+        - requiresTool: boolean
+        - requiresClimbing: boolean
+        - requiresSwimming: boolean
+    }
+
+    Lock <|-- KeyLock
+    Lock <|-- CodeLock
+    Lock <|-- KeycardLock
+
+    Location "1" *-- "1" LootProfile : default loot
+    Location "1" *-- "1" StructureProfile : structure
+    Location "1" *-- "1" DangerProfile : default danger
+    Location "1" *-- "1" AccessProfile : access
+
+    AccessProfile "1" *-- "0..1" Lock : lock
+
+    Location "0..*" --> "1" Region : located in
+    Location "0..*" --> "0..1" Settlement : inside
+    Location "0..*" --> "1" Coordinates : positioned at 
+}
+
+package weather {
+    enum WeatherType {
+        CLEAR
+        PARTLY_CLOUDY
+        CLOUDY
+        FOG
+        DRIZZLE
+        RAIN
+        HEAVY_RAIN
+        THUNDERSTORM
+        SNOW
+        HEAVY_SNOW
+        BLIZZARD
+        HAIL
+        HEATWAVE
+        COLD_SNAP
+        DUST_STORM
+        UNKNOWN
+    }
+
+    enum PrecipitationType {
+        NONE
+        RAIN
+        SNOW
+        HAIL
+        SLEET
+        UNKNOWN
+    }
+
+    enum WindStrength {
+        CALM
+        LIGHT
+        MODERATE
+        STRONG
+        GALE
+        STORM
+        UNKNOWN
+    }
+
+    class Temperature {
+        - celsius: double
+    }
+
+    class Weather {
+        - id: UUID
+        - region: Region
+        - settlement: Settlement
+        - currentState: WeatherState
+        - profile: WeatherProfile
+        - updatedAtTick: long
+    }
+
+    class WeatherState {
+        - id: UUID
+        - type: WeatherType
+        - temperature: Temperature
+        - precipitationType: PrecipitationType
+        - precipitationIntensity: double
+        - humidity: double
+        - windStrength: WindStrength
+        - visibility: double
+        - severity: int
+        - startedAtTick: long
+        - durationTicks: long
+    }
+
+    class WeatherProfile {
+        - id: UUID
+        - biome: BiomeType
+        - averageTemperature: Temperature
+        - minTemperature: Temperature
+        - maxTemperature: Temperature
+        - rainChance: double
+        - stormChance: double
+        - snowChance: double
+        - fogChance: double
+        - windChance: double
+    }
+
+    Weather "0..*" --> "1" Region : applies to
+    Weather "0..*" --> "0..1" Settlement : optionally local to
+    Weather "1" *-- "1" WeatherState : current state
+    Weather "1" *-- "1" WeatherProfile : generation profile
+
+    WeatherState "1" --> "1" Temperature : current temperature
+    WeatherProfile "1" --> "1" Temperature : average temperature
+    WeatherProfile "1" --> "1" Temperature : min temperature
+    WeatherProfile "1" --> "1" Temperature : max temperature
+}
+
+@enduml
