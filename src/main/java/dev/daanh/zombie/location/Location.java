@@ -94,4 +94,14 @@ public class Location {
 
         this.searchable = false;
     }
+
+    public void degradeCondition() {
+        if (this.condition == null) { return; }
+
+        if (this.condition == LocationCondition.INTACT) {
+            this.condition = LocationCondition.WORN;
+        } else if (this.condition == LocationCondition.WORN) {
+            this.condition = LocationCondition.DAMAGED;
+        }
+    }
 }

@@ -54,4 +54,8 @@ public class WeatherState {
 
     @Enumerated(EnumType.STRING)
     private PrecipitationType precipitationType;
+
+    public boolean isExpired(long currentTick) {
+        return currentTick >= (this.startedAtTick + this.durationTicks);
+    }
 }
