@@ -195,6 +195,8 @@ package location {
         - pickable: boolean
         - breakable: boolean
         - durability: int
+        + breakLock(int damageAmount)
+        + openLock()
     }
 
     class KeyLock {
@@ -226,6 +228,7 @@ package location {
         - enterable: boolean
         - searchable: boolean
         - generated: boolean
+        + search()
     }  
 
     class LootProfile {
@@ -236,7 +239,7 @@ package location {
         - toolChance: double
         - fuelChance: double
         - clothingChance: double
-        - junkChance: double   
+        - junkChance: double
     }
 
     class DangerProfile {
@@ -257,7 +260,6 @@ package location {
         - hasRoofAccess: boolean
         - hasPower: boolean
         - hasWater: boolean
-        - fortificationPotential: int 
     }
 
     class AccessProfile {

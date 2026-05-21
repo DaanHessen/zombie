@@ -6,18 +6,22 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.UUID;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class StructureProfile {
     @Id
+    @Setter(AccessLevel.NONE)
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
@@ -32,9 +36,6 @@ public class StructureProfile {
     private boolean hasPower;
 
     private boolean hasWater;
-
-    // vague so I might change it later (fortification / base builder package for example)
-    private int fortificationPotential;
 
     @OneToOne(mappedBy = "structureProfile")
     private Location location;
