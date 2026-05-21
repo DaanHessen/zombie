@@ -1,0 +1,19 @@
+package dev.daanh.zombie.world.enums;
+
+public enum BiomeType {
+    TUNDRA,
+    TIAGA,
+    TEMPERATE_DECIDUOUS_FOREST,
+    TEMPERATE_RAINFOREST,
+    TEMPERATE_GRASSLAND,
+    MEDITERRANEAN,
+    HOT_DESERT,
+    COLD_DESERT,
+    SAVANNA,
+    TROPICAL_SEASONAL_FOREST,
+    TROPICAL_RAINFOREST,
+    ALPINE,
+    SWAMP,
+    COASTAL,
+    ICE_CAP
+}
