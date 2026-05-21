@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Pacific Ocean",
+    "type": "Ocean"
+  },
+  {
+    "name": "Atlantic Ocean",
+    "type": "Ocean"
+  },
+  {
+    "name": "Indian Ocean",
+    "type": "Ocean"
+  },
+  {
+    "name": "Southern Ocean",
+    "type": "Ocean"
+  },
+  {
+    "name": "Arctic Ocean",
+    "type": "Ocean"
+  },
+  {
+    "name": "Mediterranean Sea",
+    "type": "Sea"
+  },
+  {
+    "name": "Caribbean Sea",
+    "type": "Sea"
+  },
+  {
+    "name": "South China Sea",
+    "type": "Sea"
+  },
+  {
+    "name": "Bering Sea",
+    "type": "Sea"
+  },
+  {
+    "name": "Gulf of Mexico",
+    "type": "Sea"
+  },
+  {
+    "name": "Sea of Okhotsk",
+    "type": "Sea"
+  },
+  {
+    "name": "East China Sea",
+    "type": "Sea"
+  },
+  {
+    "name": "Hudson Bay",
+    "type": "Sea"
+  },
+  {
+    "name": "Sea of Japan",
+    "type": "Sea"
+  },
+  {
+    "name": "Andaman Sea",
+    "type": "Sea"
+  },
+  {
+    "name": "North Sea",
+    "type": "Sea"
+  },
+  {
+    "name": "Red Sea",
+    "type": "Sea"
+  },
+  {
+    "name": "Baltic Sea",
+    "type": "Sea"
+  },
+  {
+    "name": "Tasman Sea",
+    "type": "Sea"
+  },
+  {
+    "name": "Celtic Sea",
+    "type": "Sea"
+  },
+  {
+    "name": "Coral Sea",
+    "type": "Sea"
+  },
+  {
+    "name": "Arabian Sea",
+    "type": "Sea"
+  },
+  {
+    "name": "Black Sea",
+    "type": "Sea"
+  },
+  {
+    "name": "Caspian Sea",
+    "type": "Sea"
+  }
+]

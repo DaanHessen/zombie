@@ -1,0 +1,2270 @@
+[
+  {
+    "iso": "AD",
+    "iso3": "AND",
+    "name": "Andorra",
+    "capital": "Andorra la Vella",
+    "continent": "EU",
+    "population": 77006,
+    "areaSqKm": 468.0
+  },
+  {
+    "iso": "AE",
+    "iso3": "ARE",
+    "name": "United Arab Emirates",
+    "capital": "Abu Dhabi",
+    "continent": "AS",
+    "population": 9630959,
+    "areaSqKm": 82880.0
+  },
+  {
+    "iso": "AF",
+    "iso3": "AFG",
+    "name": "Afghanistan",
+    "capital": "Kabul",
+    "continent": "AS",
+    "population": 37172386,
+    "areaSqKm": 647500.0
+  },
+  {
+    "iso": "AG",
+    "iso3": "ATG",
+    "name": "Antigua and Barbuda",
+    "capital": "St. John's",
+    "continent": "NA",
+    "population": 96286,
+    "areaSqKm": 443.0
+  },
+  {
+    "iso": "AI",
+    "iso3": "AIA",
+    "name": "Anguilla",
+    "capital": "The Valley",
+    "continent": "NA",
+    "population": 13254,
+    "areaSqKm": 102.0
+  },
+  {
+    "iso": "AL",
+    "iso3": "ALB",
+    "name": "Albania",
+    "capital": "Tirana",
+    "continent": "EU",
+    "population": 2866376,
+    "areaSqKm": 28748.0
+  },
+  {
+    "iso": "AM",
+    "iso3": "ARM",
+    "name": "Armenia",
+    "capital": "Yerevan",
+    "continent": "AS",
+    "population": 3090500,
+    "areaSqKm": 29800.0
+  },
+  {
+    "iso": "AO",
+    "iso3": "AGO",
+    "name": "Angola",
+    "capital": "Luanda",
+    "continent": "AF",
+    "population": 30809762,
+    "areaSqKm": 1246700.0
+  },
+  {
+    "iso": "AQ",
+    "iso3": "ATA",
+    "name": "Antarctica",
+    "capital": "",
+    "continent": "AN",
+    "population": 0,
+    "areaSqKm": 14000000.0
+  },
+  {
+    "iso": "AR",
+    "iso3": "ARG",
+    "name": "Argentina",
+    "capital": "Buenos Aires",
+    "continent": "SA",
+    "population": 44494502,
+    "areaSqKm": 2766890.0
+  },
+  {
+    "iso": "AS",
+    "iso3": "ASM",
+    "name": "American Samoa",
+    "capital": "Pago Pago",
+    "continent": "OC",
+    "population": 55465,
+    "areaSqKm": 199.0
+  },
+  {
+    "iso": "AT",
+    "iso3": "AUT",
+    "name": "Austria",
+    "capital": "Vienna",
+    "continent": "EU",
+    "population": 8847037,
+    "areaSqKm": 83858.0
+  },
+  {
+    "iso": "AU",
+    "iso3": "AUS",
+    "name": "Australia",
+    "capital": "Canberra",
+    "continent": "OC",
+    "population": 24992369,
+    "areaSqKm": 7686850.0
+  },
+  {
+    "iso": "AW",
+    "iso3": "ABW",
+    "name": "Aruba",
+    "capital": "Oranjestad",
+    "continent": "NA",
+    "population": 105845,
+    "areaSqKm": 193.0
+  },
+  {
+    "iso": "AX",
+    "iso3": "ALA",
+    "name": "Aland Islands",
+    "capital": "Mariehamn",
+    "continent": "EU",
+    "population": 26711,
+    "areaSqKm": 1580.0
+  },
+  {
+    "iso": "AZ",
+    "iso3": "AZE",
+    "name": "Azerbaijan",
+    "capital": "Baku",
+    "continent": "AS",
+    "population": 10224900,
+    "areaSqKm": 86600.0
+  },
+  {
+    "iso": "BA",
+    "iso3": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "capital": "Sarajevo",
+    "continent": "EU",
+    "population": 3323929,
+    "areaSqKm": 51129.0
+  },
+  {
+    "iso": "BB",
+    "iso3": "BRB",
+    "name": "Barbados",
+    "capital": "Bridgetown",
+    "continent": "NA",
+    "population": 286641,
+    "areaSqKm": 431.0
+  },
+  {
+    "iso": "BD",
+    "iso3": "BGD",
+    "name": "Bangladesh",
+    "capital": "Dhaka",
+    "continent": "AS",
+    "population": 161356039,
+    "areaSqKm": 144000.0
+  },
+  {
+    "iso": "BE",
+    "iso3": "BEL",
+    "name": "Belgium",
+    "capital": "Brussels",
+    "continent": "EU",
+    "population": 11422068,
+    "areaSqKm": 30510.0
+  },
+  {
+    "iso": "BF",
+    "iso3": "BFA",
+    "name": "Burkina Faso",
+    "capital": "Ouagadougou",
+    "continent": "AF",
+    "population": 19751535,
+    "areaSqKm": 274200.0
+  },
+  {
+    "iso": "BG",
+    "iso3": "BGR",
+    "name": "Bulgaria",
+    "capital": "Sofia",
+    "continent": "EU",
+    "population": 7000039,
+    "areaSqKm": 110910.0
+  },
+  {
+    "iso": "BH",
+    "iso3": "BHR",
+    "name": "Bahrain",
+    "capital": "Manama",
+    "continent": "AS",
+    "population": 1569439,
+    "areaSqKm": 665.0
+  },
+  {
+    "iso": "BI",
+    "iso3": "BDI",
+    "name": "Burundi",
+    "capital": "Gitega",
+    "continent": "AF",
+    "population": 11175378,
+    "areaSqKm": 27830.0
+  },
+  {
+    "iso": "BJ",
+    "iso3": "BEN",
+    "name": "Benin",
+    "capital": "Porto-Novo",
+    "continent": "AF",
+    "population": 11485048,
+    "areaSqKm": 112620.0
+  },
+  {
+    "iso": "BL",
+    "iso3": "BLM",
+    "name": "Saint Barthelemy",
+    "capital": "Gustavia",
+    "continent": "NA",
+    "population": 8450,
+    "areaSqKm": 21.0
+  },
+  {
+    "iso": "BM",
+    "iso3": "BMU",
+    "name": "Bermuda",
+    "capital": "Hamilton",
+    "continent": "NA",
+    "population": 63968,
+    "areaSqKm": 53.0
+  },
+  {
+    "iso": "BN",
+    "iso3": "BRN",
+    "name": "Brunei",
+    "capital": "Bandar Seri Begawan",
+    "continent": "AS",
+    "population": 428962,
+    "areaSqKm": 5770.0
+  },
+  {
+    "iso": "BO",
+    "iso3": "BOL",
+    "name": "Bolivia",
+    "capital": "Sucre",
+    "continent": "SA",
+    "population": 11353142,
+    "areaSqKm": 1098580.0
+  },
+  {
+    "iso": "BQ",
+    "iso3": "BES",
+    "name": "Bonaire, Saint Eustatius and Saba ",
+    "capital": "",
+    "continent": "NA",
+    "population": 18012,
+    "areaSqKm": 328.0
+  },
+  {
+    "iso": "BR",
+    "iso3": "BRA",
+    "name": "Brazil",
+    "capital": "Brasilia",
+    "continent": "SA",
+    "population": 209469333,
+    "areaSqKm": 8511965.0
+  },
+  {
+    "iso": "BS",
+    "iso3": "BHS",
+    "name": "Bahamas",
+    "capital": "Nassau",
+    "continent": "NA",
+    "population": 385640,
+    "areaSqKm": 13940.0
+  },
+  {
+    "iso": "BT",
+    "iso3": "BTN",
+    "name": "Bhutan",
+    "capital": "Thimphu",
+    "continent": "AS",
+    "population": 754394,
+    "areaSqKm": 47000.0
+  },
+  {
+    "iso": "BV",
+    "iso3": "BVT",
+    "name": "Bouvet Island",
+    "capital": "",
+    "continent": "AN",
+    "population": 0,
+    "areaSqKm": 49.0
+  },
+  {
+    "iso": "BW",
+    "iso3": "BWA",
+    "name": "Botswana",
+    "capital": "Gaborone",
+    "continent": "AF",
+    "population": 2254126,
+    "areaSqKm": 600370.0
+  },
+  {
+    "iso": "BY",
+    "iso3": "BLR",
+    "name": "Belarus",
+    "capital": "Minsk",
+    "continent": "EU",
+    "population": 9485386,
+    "areaSqKm": 207600.0
+  },
+  {
+    "iso": "BZ",
+    "iso3": "BLZ",
+    "name": "Belize",
+    "capital": "Belmopan",
+    "continent": "NA",
+    "population": 383071,
+    "areaSqKm": 22966.0
+  },
+  {
+    "iso": "CA",
+    "iso3": "CAN",
+    "name": "Canada",
+    "capital": "Ottawa",
+    "continent": "NA",
+    "population": 37058856,
+    "areaSqKm": 9984670.0
+  },
+  {
+    "iso": "CC",
+    "iso3": "CCK",
+    "name": "Cocos Islands",
+    "capital": "West Island",
+    "continent": "AS",
+    "population": 628,
+    "areaSqKm": 14.0
+  },
+  {
+    "iso": "CD",
+    "iso3": "COD",
+    "name": "Democratic Republic of the Congo",
+    "capital": "Kinshasa",
+    "continent": "AF",
+    "population": 84068091,
+    "areaSqKm": 2345410.0
+  },
+  {
+    "iso": "CF",
+    "iso3": "CAF",
+    "name": "Central African Republic",
+    "capital": "Bangui",
+    "continent": "AF",
+    "population": 4666377,
+    "areaSqKm": 622984.0
+  },
+  {
+    "iso": "CG",
+    "iso3": "COG",
+    "name": "Republic of the Congo",
+    "capital": "Brazzaville",
+    "continent": "AF",
+    "population": 5244363,
+    "areaSqKm": 342000.0
+  },
+  {
+    "iso": "CH",
+    "iso3": "CHE",
+    "name": "Switzerland",
+    "capital": "Bern",
+    "continent": "EU",
+    "population": 8516543,
+    "areaSqKm": 41290.0
+  },
+  {
+    "iso": "CI",
+    "iso3": "CIV",
+    "name": "Ivory Coast",
+    "capital": "Yamoussoukro",
+    "continent": "AF",
+    "population": 25069229,
+    "areaSqKm": 322460.0
+  },
+  {
+    "iso": "CK",
+    "iso3": "COK",
+    "name": "Cook Islands",
+    "capital": "Avarua",
+    "continent": "OC",
+    "population": 21388,
+    "areaSqKm": 240.0
+  },
+  {
+    "iso": "CL",
+    "iso3": "CHL",
+    "name": "Chile",
+    "capital": "Santiago",
+    "continent": "SA",
+    "population": 18729160,
+    "areaSqKm": 756950.0
+  },
+  {
+    "iso": "CM",
+    "iso3": "CMR",
+    "name": "Cameroon",
+    "capital": "Yaounde",
+    "continent": "AF",
+    "population": 25216237,
+    "areaSqKm": 475440.0
+  },
+  {
+    "iso": "CN",
+    "iso3": "CHN",
+    "name": "China",
+    "capital": "Beijing",
+    "continent": "AS",
+    "population": 1411778724,
+    "areaSqKm": 9596960.0
+  },
+  {
+    "iso": "CO",
+    "iso3": "COL",
+    "name": "Colombia",
+    "capital": "Bogota",
+    "continent": "SA",
+    "population": 49648685,
+    "areaSqKm": 1138910.0
+  },
+  {
+    "iso": "CR",
+    "iso3": "CRI",
+    "name": "Costa Rica",
+    "capital": "San Jose",
+    "continent": "NA",
+    "population": 4999441,
+    "areaSqKm": 51100.0
+  },
+  {
+    "iso": "CU",
+    "iso3": "CUB",
+    "name": "Cuba",
+    "capital": "Havana",
+    "continent": "NA",
+    "population": 11338138,
+    "areaSqKm": 110860.0
+  },
+  {
+    "iso": "CV",
+    "iso3": "CPV",
+    "name": "Cabo Verde",
+    "capital": "Praia",
+    "continent": "AF",
+    "population": 543767,
+    "areaSqKm": 4033.0
+  },
+  {
+    "iso": "CW",
+    "iso3": "CUW",
+    "name": "Curacao",
+    "capital": " Willemstad",
+    "continent": "NA",
+    "population": 159849,
+    "areaSqKm": 444.0
+  },
+  {
+    "iso": "CX",
+    "iso3": "CXR",
+    "name": "Christmas Island",
+    "capital": "Flying Fish Cove",
+    "continent": "OC",
+    "population": 1500,
+    "areaSqKm": 135.0
+  },
+  {
+    "iso": "CY",
+    "iso3": "CYP",
+    "name": "Cyprus",
+    "capital": "Nicosia",
+    "continent": "EU",
+    "population": 1189265,
+    "areaSqKm": 9250.0
+  },
+  {
+    "iso": "CZ",
+    "iso3": "CZE",
+    "name": "Czechia",
+    "capital": "Prague",
+    "continent": "EU",
+    "population": 10625695,
+    "areaSqKm": 78866.0
+  },
+  {
+    "iso": "DE",
+    "iso3": "DEU",
+    "name": "Germany",
+    "capital": "Berlin",
+    "continent": "EU",
+    "population": 82927922,
+    "areaSqKm": 357021.0
+  },
+  {
+    "iso": "DJ",
+    "iso3": "DJI",
+    "name": "Djibouti",
+    "capital": "Djibouti",
+    "continent": "AF",
+    "population": 958920,
+    "areaSqKm": 23000.0
+  },
+  {
+    "iso": "DK",
+    "iso3": "DNK",
+    "name": "Denmark",
+    "capital": "Copenhagen",
+    "continent": "EU",
+    "population": 5797446,
+    "areaSqKm": 43094.0
+  },
+  {
+    "iso": "DM",
+    "iso3": "DMA",
+    "name": "Dominica",
+    "capital": "Roseau",
+    "continent": "NA",
+    "population": 71625,
+    "areaSqKm": 754.0
+  },
+  {
+    "iso": "DO",
+    "iso3": "DOM",
+    "name": "Dominican Republic",
+    "capital": "Santo Domingo",
+    "continent": "NA",
+    "population": 10627165,
+    "areaSqKm": 48730.0
+  },
+  {
+    "iso": "DZ",
+    "iso3": "DZA",
+    "name": "Algeria",
+    "capital": "Algiers",
+    "continent": "AF",
+    "population": 42228429,
+    "areaSqKm": 2381740.0
+  },
+  {
+    "iso": "EC",
+    "iso3": "ECU",
+    "name": "Ecuador",
+    "capital": "Quito",
+    "continent": "SA",
+    "population": 17084357,
+    "areaSqKm": 283560.0
+  },
+  {
+    "iso": "EE",
+    "iso3": "EST",
+    "name": "Estonia",
+    "capital": "Tallinn",
+    "continent": "EU",
+    "population": 1320884,
+    "areaSqKm": 45226.0
+  },
+  {
+    "iso": "EG",
+    "iso3": "EGY",
+    "name": "Egypt",
+    "capital": "Cairo",
+    "continent": "AF",
+    "population": 98423595,
+    "areaSqKm": 1001450.0
+  },
+  {
+    "iso": "EH",
+    "iso3": "ESH",
+    "name": "Western Sahara",
+    "capital": "El-Aaiun",
+    "continent": "AF",
+    "population": 273008,
+    "areaSqKm": 266000.0
+  },
+  {
+    "iso": "ER",
+    "iso3": "ERI",
+    "name": "Eritrea",
+    "capital": "Asmara",
+    "continent": "AF",
+    "population": 6209262,
+    "areaSqKm": 121320.0
+  },
+  {
+    "iso": "ES",
+    "iso3": "ESP",
+    "name": "Spain",
+    "capital": "Madrid",
+    "continent": "EU",
+    "population": 46723749,
+    "areaSqKm": 504782.0
+  },
+  {
+    "iso": "ET",
+    "iso3": "ETH",
+    "name": "Ethiopia",
+    "capital": "Addis Ababa",
+    "continent": "AF",
+    "population": 109224559,
+    "areaSqKm": 1127127.0
+  },
+  {
+    "iso": "FI",
+    "iso3": "FIN",
+    "name": "Finland",
+    "capital": "Helsinki",
+    "continent": "EU",
+    "population": 5518050,
+    "areaSqKm": 337030.0
+  },
+  {
+    "iso": "FJ",
+    "iso3": "FJI",
+    "name": "Fiji",
+    "capital": "Suva",
+    "continent": "OC",
+    "population": 883483,
+    "areaSqKm": 18270.0
+  },
+  {
+    "iso": "FK",
+    "iso3": "FLK",
+    "name": "Falkland Islands",
+    "capital": "Stanley",
+    "continent": "SA",
+    "population": 2638,
+    "areaSqKm": 12173.0
+  },
+  {
+    "iso": "FM",
+    "iso3": "FSM",
+    "name": "Micronesia",
+    "capital": "Palikir",
+    "continent": "OC",
+    "population": 112640,
+    "areaSqKm": 702.0
+  },
+  {
+    "iso": "FO",
+    "iso3": "FRO",
+    "name": "Faroe Islands",
+    "capital": "Torshavn",
+    "continent": "EU",
+    "population": 48497,
+    "areaSqKm": 1399.0
+  },
+  {
+    "iso": "FR",
+    "iso3": "FRA",
+    "name": "France",
+    "capital": "Paris",
+    "continent": "EU",
+    "population": 66987244,
+    "areaSqKm": 547030.0
+  },
+  {
+    "iso": "GA",
+    "iso3": "GAB",
+    "name": "Gabon",
+    "capital": "Libreville",
+    "continent": "AF",
+    "population": 2119275,
+    "areaSqKm": 267667.0
+  },
+  {
+    "iso": "GB",
+    "iso3": "GBR",
+    "name": "United Kingdom",
+    "capital": "London",
+    "continent": "EU",
+    "population": 66488991,
+    "areaSqKm": 244820.0
+  },
+  {
+    "iso": "GD",
+    "iso3": "GRD",
+    "name": "Grenada",
+    "capital": "St. George's",
+    "continent": "NA",
+    "population": 111454,
+    "areaSqKm": 344.0
+  },
+  {
+    "iso": "GE",
+    "iso3": "GEO",
+    "name": "Georgia",
+    "capital": "Tbilisi",
+    "continent": "AS",
+    "population": 3704500,
+    "areaSqKm": 69700.0
+  },
+  {
+    "iso": "GF",
+    "iso3": "GUF",
+    "name": "French Guiana",
+    "capital": "Cayenne",
+    "continent": "SA",
+    "population": 195506,
+    "areaSqKm": 91000.0
+  },
+  {
+    "iso": "GG",
+    "iso3": "GGY",
+    "name": "Guernsey",
+    "capital": "St Peter Port",
+    "continent": "EU",
+    "population": 65228,
+    "areaSqKm": 78.0
+  },
+  {
+    "iso": "GH",
+    "iso3": "GHA",
+    "name": "Ghana",
+    "capital": "Accra",
+    "continent": "AF",
+    "population": 29767108,
+    "areaSqKm": 239460.0
+  },
+  {
+    "iso": "GI",
+    "iso3": "GIB",
+    "name": "Gibraltar",
+    "capital": "Gibraltar",
+    "continent": "EU",
+    "population": 33718,
+    "areaSqKm": 6.5
+  },
+  {
+    "iso": "GL",
+    "iso3": "GRL",
+    "name": "Greenland",
+    "capital": "Nuuk",
+    "continent": "NA",
+    "population": 56025,
+    "areaSqKm": 2166086.0
+  },
+  {
+    "iso": "GM",
+    "iso3": "GMB",
+    "name": "Gambia",
+    "capital": "Banjul",
+    "continent": "AF",
+    "population": 2280102,
+    "areaSqKm": 11300.0
+  },
+  {
+    "iso": "GN",
+    "iso3": "GIN",
+    "name": "Guinea",
+    "capital": "Conakry",
+    "continent": "AF",
+    "population": 12414318,
+    "areaSqKm": 245857.0
+  },
+  {
+    "iso": "GP",
+    "iso3": "GLP",
+    "name": "Guadeloupe",
+    "capital": "Basse-Terre",
+    "continent": "NA",
+    "population": 443000,
+    "areaSqKm": 1780.0
+  },
+  {
+    "iso": "GQ",
+    "iso3": "GNQ",
+    "name": "Equatorial Guinea",
+    "capital": "Ciudad de la Paz",
+    "continent": "AF",
+    "population": 1308974,
+    "areaSqKm": 28051.0
+  },
+  {
+    "iso": "GR",
+    "iso3": "GRC",
+    "name": "Greece",
+    "capital": "Athens",
+    "continent": "EU",
+    "population": 10727668,
+    "areaSqKm": 131940.0
+  },
+  {
+    "iso": "GS",
+    "iso3": "SGS",
+    "name": "South Georgia and the South Sandwich Islands",
+    "capital": "Grytviken",
+    "continent": "AN",
+    "population": 30,
+    "areaSqKm": 3903.0
+  },
+  {
+    "iso": "GT",
+    "iso3": "GTM",
+    "name": "Guatemala",
+    "capital": "Guatemala City",
+    "continent": "NA",
+    "population": 17247807,
+    "areaSqKm": 108890.0
+  },
+  {
+    "iso": "GU",
+    "iso3": "GUM",
+    "name": "Guam",
+    "capital": "Hagatna",
+    "continent": "OC",
+    "population": 165768,
+    "areaSqKm": 549.0
+  },
+  {
+    "iso": "GW",
+    "iso3": "GNB",
+    "name": "Guinea-Bissau",
+    "capital": "Bissau",
+    "continent": "AF",
+    "population": 1874309,
+    "areaSqKm": 36120.0
+  },
+  {
+    "iso": "GY",
+    "iso3": "GUY",
+    "name": "Guyana",
+    "capital": "Georgetown",
+    "continent": "SA",
+    "population": 779004,
+    "areaSqKm": 214970.0
+  },
+  {
+    "iso": "HK",
+    "iso3": "HKG",
+    "name": "Hong Kong",
+    "capital": "Hong Kong",
+    "continent": "AS",
+    "population": 7396076,
+    "areaSqKm": 1092.0
+  },
+  {
+    "iso": "HM",
+    "iso3": "HMD",
+    "name": "Heard Island and McDonald Islands",
+    "capital": "",
+    "continent": "AN",
+    "population": 0,
+    "areaSqKm": 412.0
+  },
+  {
+    "iso": "HN",
+    "iso3": "HND",
+    "name": "Honduras",
+    "capital": "Tegucigalpa",
+    "continent": "NA",
+    "population": 9587522,
+    "areaSqKm": 112090.0
+  },
+  {
+    "iso": "HR",
+    "iso3": "HRV",
+    "name": "Croatia",
+    "capital": "Zagreb",
+    "continent": "EU",
+    "population": 3871833,
+    "areaSqKm": 56542.0
+  },
+  {
+    "iso": "HT",
+    "iso3": "HTI",
+    "name": "Haiti",
+    "capital": "Port-au-Prince",
+    "continent": "NA",
+    "population": 11123176,
+    "areaSqKm": 27750.0
+  },
+  {
+    "iso": "HU",
+    "iso3": "HUN",
+    "name": "Hungary",
+    "capital": "Budapest",
+    "continent": "EU",
+    "population": 9768785,
+    "areaSqKm": 93030.0
+  },
+  {
+    "iso": "ID",
+    "iso3": "IDN",
+    "name": "Indonesia",
+    "capital": "Jakarta",
+    "continent": "AS",
+    "population": 267663435,
+    "areaSqKm": 1919440.0
+  },
+  {
+    "iso": "IE",
+    "iso3": "IRL",
+    "name": "Ireland",
+    "capital": "Dublin",
+    "continent": "EU",
+    "population": 4853506,
+    "areaSqKm": 70280.0
+  },
+  {
+    "iso": "IL",
+    "iso3": "ISR",
+    "name": "Israel",
+    "capital": "Jerusalem",
+    "continent": "AS",
+    "population": 8883800,
+    "areaSqKm": 20770.0
+  },
+  {
+    "iso": "IM",
+    "iso3": "IMN",
+    "name": "Isle of Man",
+    "capital": "Douglas",
+    "continent": "EU",
+    "population": 84077,
+    "areaSqKm": 572.0
+  },
+  {
+    "iso": "IN",
+    "iso3": "IND",
+    "name": "India",
+    "capital": "New Delhi",
+    "continent": "AS",
+    "population": 1352617328,
+    "areaSqKm": 3287590.0
+  },
+  {
+    "iso": "IO",
+    "iso3": "IOT",
+    "name": "British Indian Ocean Territory",
+    "capital": "Diego Garcia",
+    "continent": "AS",
+    "population": 4000,
+    "areaSqKm": 60.0
+  },
+  {
+    "iso": "IQ",
+    "iso3": "IRQ",
+    "name": "Iraq",
+    "capital": "Baghdad",
+    "continent": "AS",
+    "population": 38433600,
+    "areaSqKm": 437072.0
+  },
+  {
+    "iso": "IR",
+    "iso3": "IRN",
+    "name": "Iran",
+    "capital": "Tehran",
+    "continent": "AS",
+    "population": 81800269,
+    "areaSqKm": 1648000.0
+  },
+  {
+    "iso": "IS",
+    "iso3": "ISL",
+    "name": "Iceland",
+    "capital": "Reykjavik",
+    "continent": "EU",
+    "population": 353574,
+    "areaSqKm": 103000.0
+  },
+  {
+    "iso": "IT",
+    "iso3": "ITA",
+    "name": "Italy",
+    "capital": "Rome",
+    "continent": "EU",
+    "population": 60431283,
+    "areaSqKm": 301230.0
+  },
+  {
+    "iso": "JE",
+    "iso3": "JEY",
+    "name": "Jersey",
+    "capital": "Saint Helier",
+    "continent": "EU",
+    "population": 90812,
+    "areaSqKm": 116.0
+  },
+  {
+    "iso": "JM",
+    "iso3": "JAM",
+    "name": "Jamaica",
+    "capital": "Kingston",
+    "continent": "NA",
+    "population": 2934855,
+    "areaSqKm": 10991.0
+  },
+  {
+    "iso": "JO",
+    "iso3": "JOR",
+    "name": "Jordan",
+    "capital": "Amman",
+    "continent": "AS",
+    "population": 9956011,
+    "areaSqKm": 92300.0
+  },
+  {
+    "iso": "JP",
+    "iso3": "JPN",
+    "name": "Japan",
+    "capital": "Tokyo",
+    "continent": "AS",
+    "population": 126529100,
+    "areaSqKm": 377835.0
+  },
+  {
+    "iso": "KE",
+    "iso3": "KEN",
+    "name": "Kenya",
+    "capital": "Nairobi",
+    "continent": "AF",
+    "population": 51393010,
+    "areaSqKm": 582650.0
+  },
+  {
+    "iso": "KG",
+    "iso3": "KGZ",
+    "name": "Kyrgyzstan",
+    "capital": "Bishkek",
+    "continent": "AS",
+    "population": 6315800,
+    "areaSqKm": 198500.0
+  },
+  {
+    "iso": "KH",
+    "iso3": "KHM",
+    "name": "Cambodia",
+    "capital": "Phnom Penh",
+    "continent": "AS",
+    "population": 16249798,
+    "areaSqKm": 181040.0
+  },
+  {
+    "iso": "KI",
+    "iso3": "KIR",
+    "name": "Kiribati",
+    "capital": "Tarawa",
+    "continent": "OC",
+    "population": 115847,
+    "areaSqKm": 811.0
+  },
+  {
+    "iso": "KM",
+    "iso3": "COM",
+    "name": "Comoros",
+    "capital": "Moroni",
+    "continent": "AF",
+    "population": 832322,
+    "areaSqKm": 2170.0
+  },
+  {
+    "iso": "KN",
+    "iso3": "KNA",
+    "name": "Saint Kitts and Nevis",
+    "capital": "Basseterre",
+    "continent": "NA",
+    "population": 52441,
+    "areaSqKm": 261.0
+  },
+  {
+    "iso": "KP",
+    "iso3": "PRK",
+    "name": "North Korea",
+    "capital": "Pyongyang",
+    "continent": "AS",
+    "population": 25549819,
+    "areaSqKm": 120540.0
+  },
+  {
+    "iso": "KR",
+    "iso3": "KOR",
+    "name": "South Korea",
+    "capital": "Seoul",
+    "continent": "AS",
+    "population": 51635256,
+    "areaSqKm": 98480.0
+  },
+  {
+    "iso": "XK",
+    "iso3": "XKX",
+    "name": "Kosovo",
+    "capital": "Pristina",
+    "continent": "EU",
+    "population": 1845300,
+    "areaSqKm": 10908.0
+  },
+  {
+    "iso": "KW",
+    "iso3": "KWT",
+    "name": "Kuwait",
+    "capital": "Kuwait City",
+    "continent": "AS",
+    "population": 4137309,
+    "areaSqKm": 17820.0
+  },
+  {
+    "iso": "KY",
+    "iso3": "CYM",
+    "name": "Cayman Islands",
+    "capital": "George Town",
+    "continent": "NA",
+    "population": 64174,
+    "areaSqKm": 262.0
+  },
+  {
+    "iso": "KZ",
+    "iso3": "KAZ",
+    "name": "Kazakhstan",
+    "capital": "Nur-Sultan",
+    "continent": "AS",
+    "population": 18276499,
+    "areaSqKm": 2717300.0
+  },
+  {
+    "iso": "LA",
+    "iso3": "LAO",
+    "name": "Laos",
+    "capital": "Vientiane",
+    "continent": "AS",
+    "population": 7061507,
+    "areaSqKm": 236800.0
+  },
+  {
+    "iso": "LB",
+    "iso3": "LBN",
+    "name": "Lebanon",
+    "capital": "Beirut",
+    "continent": "AS",
+    "population": 6848925,
+    "areaSqKm": 10400.0
+  },
+  {
+    "iso": "LC",
+    "iso3": "LCA",
+    "name": "Saint Lucia",
+    "capital": "Castries",
+    "continent": "NA",
+    "population": 181889,
+    "areaSqKm": 616.0
+  },
+  {
+    "iso": "LI",
+    "iso3": "LIE",
+    "name": "Liechtenstein",
+    "capital": "Vaduz",
+    "continent": "EU",
+    "population": 37910,
+    "areaSqKm": 160.0
+  },
+  {
+    "iso": "LK",
+    "iso3": "LKA",
+    "name": "Sri Lanka",
+    "capital": "Colombo",
+    "continent": "AS",
+    "population": 21670000,
+    "areaSqKm": 65610.0
+  },
+  {
+    "iso": "LR",
+    "iso3": "LBR",
+    "name": "Liberia",
+    "capital": "Monrovia",
+    "continent": "AF",
+    "population": 4818977,
+    "areaSqKm": 111370.0
+  },
+  {
+    "iso": "LS",
+    "iso3": "LSO",
+    "name": "Lesotho",
+    "capital": "Maseru",
+    "continent": "AF",
+    "population": 2108132,
+    "areaSqKm": 30355.0
+  },
+  {
+    "iso": "LT",
+    "iso3": "LTU",
+    "name": "Lithuania",
+    "capital": "Vilnius",
+    "continent": "EU",
+    "population": 2789533,
+    "areaSqKm": 65200.0
+  },
+  {
+    "iso": "LU",
+    "iso3": "LUX",
+    "name": "Luxembourg",
+    "capital": "Luxembourg",
+    "continent": "EU",
+    "population": 607728,
+    "areaSqKm": 2586.0
+  },
+  {
+    "iso": "LV",
+    "iso3": "LVA",
+    "name": "Latvia",
+    "capital": "Riga",
+    "continent": "EU",
+    "population": 1926542,
+    "areaSqKm": 64589.0
+  },
+  {
+    "iso": "LY",
+    "iso3": "LBY",
+    "name": "Libya",
+    "capital": "Tripoli",
+    "continent": "AF",
+    "population": 6678567,
+    "areaSqKm": 1759540.0
+  },
+  {
+    "iso": "MA",
+    "iso3": "MAR",
+    "name": "Morocco",
+    "capital": "Rabat",
+    "continent": "AF",
+    "population": 36029138,
+    "areaSqKm": 446550.0
+  },
+  {
+    "iso": "MC",
+    "iso3": "MCO",
+    "name": "Monaco",
+    "capital": "Monaco",
+    "continent": "EU",
+    "population": 38682,
+    "areaSqKm": 1.95
+  },
+  {
+    "iso": "MD",
+    "iso3": "MDA",
+    "name": "Moldova",
+    "capital": "Chisinau",
+    "continent": "EU",
+    "population": 3545883,
+    "areaSqKm": 33843.0
+  },
+  {
+    "iso": "ME",
+    "iso3": "MNE",
+    "name": "Montenegro",
+    "capital": "Podgorica",
+    "continent": "EU",
+    "population": 622345,
+    "areaSqKm": 14026.0
+  },
+  {
+    "iso": "MF",
+    "iso3": "MAF",
+    "name": "Saint Martin",
+    "capital": "Marigot",
+    "continent": "NA",
+    "population": 37264,
+    "areaSqKm": 53.0
+  },
+  {
+    "iso": "MG",
+    "iso3": "MDG",
+    "name": "Madagascar",
+    "capital": "Antananarivo",
+    "continent": "AF",
+    "population": 26262368,
+    "areaSqKm": 587040.0
+  },
+  {
+    "iso": "MH",
+    "iso3": "MHL",
+    "name": "Marshall Islands",
+    "capital": "Majuro",
+    "continent": "OC",
+    "population": 58413,
+    "areaSqKm": 181.3
+  },
+  {
+    "iso": "MK",
+    "iso3": "MKD",
+    "name": "North Macedonia",
+    "capital": "Skopje",
+    "continent": "EU",
+    "population": 2082958,
+    "areaSqKm": 25333.0
+  },
+  {
+    "iso": "ML",
+    "iso3": "MLI",
+    "name": "Mali",
+    "capital": "Bamako",
+    "continent": "AF",
+    "population": 19077690,
+    "areaSqKm": 1240000.0
+  },
+  {
+    "iso": "MM",
+    "iso3": "MMR",
+    "name": "Myanmar",
+    "capital": "Nay Pyi Taw",
+    "continent": "AS",
+    "population": 53708395,
+    "areaSqKm": 678500.0
+  },
+  {
+    "iso": "MN",
+    "iso3": "MNG",
+    "name": "Mongolia",
+    "capital": "Ulaanbaatar",
+    "continent": "AS",
+    "population": 3170208,
+    "areaSqKm": 1565000.0
+  },
+  {
+    "iso": "MO",
+    "iso3": "MAC",
+    "name": "Macao",
+    "capital": "Macao",
+    "continent": "AS",
+    "population": 631636,
+    "areaSqKm": 254.0
+  },
+  {
+    "iso": "MP",
+    "iso3": "MNP",
+    "name": "Northern Mariana Islands",
+    "capital": "Saipan",
+    "continent": "OC",
+    "population": 56882,
+    "areaSqKm": 477.0
+  },
+  {
+    "iso": "MQ",
+    "iso3": "MTQ",
+    "name": "Martinique",
+    "capital": "Fort-de-France",
+    "continent": "NA",
+    "population": 432900,
+    "areaSqKm": 1100.0
+  },
+  {
+    "iso": "MR",
+    "iso3": "MRT",
+    "name": "Mauritania",
+    "capital": "Nouakchott",
+    "continent": "AF",
+    "population": 4403319,
+    "areaSqKm": 1030700.0
+  },
+  {
+    "iso": "MS",
+    "iso3": "MSR",
+    "name": "Montserrat",
+    "capital": "Plymouth",
+    "continent": "NA",
+    "population": 9341,
+    "areaSqKm": 102.0
+  },
+  {
+    "iso": "MT",
+    "iso3": "MLT",
+    "name": "Malta",
+    "capital": "Valletta",
+    "continent": "EU",
+    "population": 483530,
+    "areaSqKm": 316.0
+  },
+  {
+    "iso": "MU",
+    "iso3": "MUS",
+    "name": "Mauritius",
+    "capital": "Port Louis",
+    "continent": "AF",
+    "population": 1265303,
+    "areaSqKm": 2040.0
+  },
+  {
+    "iso": "MV",
+    "iso3": "MDV",
+    "name": "Maldives",
+    "capital": "Male",
+    "continent": "AS",
+    "population": 515696,
+    "areaSqKm": 300.0
+  },
+  {
+    "iso": "MW",
+    "iso3": "MWI",
+    "name": "Malawi",
+    "capital": "Lilongwe",
+    "continent": "AF",
+    "population": 17563749,
+    "areaSqKm": 118480.0
+  },
+  {
+    "iso": "MX",
+    "iso3": "MEX",
+    "name": "Mexico",
+    "capital": "Mexico City",
+    "continent": "NA",
+    "population": 126190788,
+    "areaSqKm": 1972550.0
+  },
+  {
+    "iso": "MY",
+    "iso3": "MYS",
+    "name": "Malaysia",
+    "capital": "Kuala Lumpur",
+    "continent": "AS",
+    "population": 31528585,
+    "areaSqKm": 329750.0
+  },
+  {
+    "iso": "MZ",
+    "iso3": "MOZ",
+    "name": "Mozambique",
+    "capital": "Maputo",
+    "continent": "AF",
+    "population": 29495962,
+    "areaSqKm": 801590.0
+  },
+  {
+    "iso": "NA",
+    "iso3": "NAM",
+    "name": "Namibia",
+    "capital": "Windhoek",
+    "continent": "AF",
+    "population": 2448255,
+    "areaSqKm": 825418.0
+  },
+  {
+    "iso": "NC",
+    "iso3": "NCL",
+    "name": "New Caledonia",
+    "capital": "Noumea",
+    "continent": "OC",
+    "population": 284060,
+    "areaSqKm": 19060.0
+  },
+  {
+    "iso": "NE",
+    "iso3": "NER",
+    "name": "Niger",
+    "capital": "Niamey",
+    "continent": "AF",
+    "population": 22442948,
+    "areaSqKm": 1267000.0
+  },
+  {
+    "iso": "NF",
+    "iso3": "NFK",
+    "name": "Norfolk Island",
+    "capital": "Kingston",
+    "continent": "OC",
+    "population": 1828,
+    "areaSqKm": 34.6
+  },
+  {
+    "iso": "NG",
+    "iso3": "NGA",
+    "name": "Nigeria",
+    "capital": "Abuja",
+    "continent": "AF",
+    "population": 195874740,
+    "areaSqKm": 923768.0
+  },
+  {
+    "iso": "NI",
+    "iso3": "NIC",
+    "name": "Nicaragua",
+    "capital": "Managua",
+    "continent": "NA",
+    "population": 6465513,
+    "areaSqKm": 129494.0
+  },
+  {
+    "iso": "NL",
+    "iso3": "NLD",
+    "name": "The Netherlands",
+    "capital": "Amsterdam",
+    "continent": "EU",
+    "population": 17231017,
+    "areaSqKm": 41526.0
+  },
+  {
+    "iso": "NO",
+    "iso3": "NOR",
+    "name": "Norway",
+    "capital": "Oslo",
+    "continent": "EU",
+    "population": 5314336,
+    "areaSqKm": 324220.0
+  },
+  {
+    "iso": "NP",
+    "iso3": "NPL",
+    "name": "Nepal",
+    "capital": "Kathmandu",
+    "continent": "AS",
+    "population": 28087871,
+    "areaSqKm": 140800.0
+  },
+  {
+    "iso": "NR",
+    "iso3": "NRU",
+    "name": "Nauru",
+    "capital": "Yaren",
+    "continent": "OC",
+    "population": 12704,
+    "areaSqKm": 21.0
+  },
+  {
+    "iso": "NU",
+    "iso3": "NIU",
+    "name": "Niue",
+    "capital": "Alofi",
+    "continent": "OC",
+    "population": 2166,
+    "areaSqKm": 260.0
+  },
+  {
+    "iso": "NZ",
+    "iso3": "NZL",
+    "name": "New Zealand",
+    "capital": "Wellington",
+    "continent": "OC",
+    "population": 4885500,
+    "areaSqKm": 268680.0
+  },
+  {
+    "iso": "OM",
+    "iso3": "OMN",
+    "name": "Oman",
+    "capital": "Muscat",
+    "continent": "AS",
+    "population": 4829483,
+    "areaSqKm": 212460.0
+  },
+  {
+    "iso": "PA",
+    "iso3": "PAN",
+    "name": "Panama",
+    "capital": "Panama City",
+    "continent": "NA",
+    "population": 4176873,
+    "areaSqKm": 78200.0
+  },
+  {
+    "iso": "PE",
+    "iso3": "PER",
+    "name": "Peru",
+    "capital": "Lima",
+    "continent": "SA",
+    "population": 31989256,
+    "areaSqKm": 1285220.0
+  },
+  {
+    "iso": "PF",
+    "iso3": "PYF",
+    "name": "French Polynesia",
+    "capital": "Papeete",
+    "continent": "OC",
+    "population": 277679,
+    "areaSqKm": 4167.0
+  },
+  {
+    "iso": "PG",
+    "iso3": "PNG",
+    "name": "Papua New Guinea",
+    "capital": "Port Moresby",
+    "continent": "OC",
+    "population": 8606316,
+    "areaSqKm": 462840.0
+  },
+  {
+    "iso": "PH",
+    "iso3": "PHL",
+    "name": "Philippines",
+    "capital": "Manila",
+    "continent": "AS",
+    "population": 106651922,
+    "areaSqKm": 300000.0
+  },
+  {
+    "iso": "PK",
+    "iso3": "PAK",
+    "name": "Pakistan",
+    "capital": "Islamabad",
+    "continent": "AS",
+    "population": 212215030,
+    "areaSqKm": 803940.0
+  },
+  {
+    "iso": "PL",
+    "iso3": "POL",
+    "name": "Poland",
+    "capital": "Warsaw",
+    "continent": "EU",
+    "population": 37978548,
+    "areaSqKm": 312685.0
+  },
+  {
+    "iso": "PM",
+    "iso3": "SPM",
+    "name": "Saint Pierre and Miquelon",
+    "capital": "Saint-Pierre",
+    "continent": "NA",
+    "population": 7012,
+    "areaSqKm": 242.0
+  },
+  {
+    "iso": "PN",
+    "iso3": "PCN",
+    "name": "Pitcairn",
+    "capital": "Adamstown",
+    "continent": "OC",
+    "population": 46,
+    "areaSqKm": 47.0
+  },
+  {
+    "iso": "PR",
+    "iso3": "PRI",
+    "name": "Puerto Rico",
+    "capital": "San Juan",
+    "continent": "NA",
+    "population": 3195153,
+    "areaSqKm": 9104.0
+  },
+  {
+    "iso": "PS",
+    "iso3": "PSE",
+    "name": "Palestinian Territory",
+    "capital": "East Jerusalem",
+    "continent": "AS",
+    "population": 4569087,
+    "areaSqKm": 5970.0
+  },
+  {
+    "iso": "PT",
+    "iso3": "PRT",
+    "name": "Portugal",
+    "capital": "Lisbon",
+    "continent": "EU",
+    "population": 10281762,
+    "areaSqKm": 92391.0
+  },
+  {
+    "iso": "PW",
+    "iso3": "PLW",
+    "name": "Palau",
+    "capital": "Melekeok",
+    "continent": "OC",
+    "population": 17907,
+    "areaSqKm": 458.0
+  },
+  {
+    "iso": "PY",
+    "iso3": "PRY",
+    "name": "Paraguay",
+    "capital": "Asuncion",
+    "continent": "SA",
+    "population": 6956071,
+    "areaSqKm": 406750.0
+  },
+  {
+    "iso": "QA",
+    "iso3": "QAT",
+    "name": "Qatar",
+    "capital": "Doha",
+    "continent": "AS",
+    "population": 2781677,
+    "areaSqKm": 11437.0
+  },
+  {
+    "iso": "RE",
+    "iso3": "REU",
+    "name": "Reunion",
+    "capital": "Saint-Denis",
+    "continent": "AF",
+    "population": 776948,
+    "areaSqKm": 2517.0
+  },
+  {
+    "iso": "RO",
+    "iso3": "ROU",
+    "name": "Romania",
+    "capital": "Bucharest",
+    "continent": "EU",
+    "population": 19473936,
+    "areaSqKm": 237500.0
+  },
+  {
+    "iso": "RS",
+    "iso3": "SRB",
+    "name": "Serbia",
+    "capital": "Belgrade",
+    "continent": "EU",
+    "population": 6982084,
+    "areaSqKm": 88361.0
+  },
+  {
+    "iso": "RU",
+    "iso3": "RUS",
+    "name": "Russia",
+    "capital": "Moscow",
+    "continent": "EU",
+    "population": 144478050,
+    "areaSqKm": 17100000.0
+  },
+  {
+    "iso": "RW",
+    "iso3": "RWA",
+    "name": "Rwanda",
+    "capital": "Kigali",
+    "continent": "AF",
+    "population": 12301939,
+    "areaSqKm": 26338.0
+  },
+  {
+    "iso": "SA",
+    "iso3": "SAU",
+    "name": "Saudi Arabia",
+    "capital": "Riyadh",
+    "continent": "AS",
+    "population": 33699947,
+    "areaSqKm": 1960582.0
+  },
+  {
+    "iso": "SB",
+    "iso3": "SLB",
+    "name": "Solomon Islands",
+    "capital": "Honiara",
+    "continent": "OC",
+    "population": 652858,
+    "areaSqKm": 28450.0
+  },
+  {
+    "iso": "SC",
+    "iso3": "SYC",
+    "name": "Seychelles",
+    "capital": "Victoria",
+    "continent": "AF",
+    "population": 96762,
+    "areaSqKm": 455.0
+  },
+  {
+    "iso": "SD",
+    "iso3": "SDN",
+    "name": "Sudan",
+    "capital": "Khartoum",
+    "continent": "AF",
+    "population": 41801533,
+    "areaSqKm": 1861484.0
+  },
+  {
+    "iso": "SS",
+    "iso3": "SSD",
+    "name": "South Sudan",
+    "capital": "Juba",
+    "continent": "AF",
+    "population": 8260490,
+    "areaSqKm": 644329.0
+  },
+  {
+    "iso": "SE",
+    "iso3": "SWE",
+    "name": "Sweden",
+    "capital": "Stockholm",
+    "continent": "EU",
+    "population": 10183175,
+    "areaSqKm": 449964.0
+  },
+  {
+    "iso": "SG",
+    "iso3": "SGP",
+    "name": "Singapore",
+    "capital": "Singapore",
+    "continent": "AS",
+    "population": 5638676,
+    "areaSqKm": 692.7
+  },
+  {
+    "iso": "SH",
+    "iso3": "SHN",
+    "name": "Saint Helena",
+    "capital": "Jamestown",
+    "continent": "AF",
+    "population": 7460,
+    "areaSqKm": 410.0
+  },
+  {
+    "iso": "SI",
+    "iso3": "SVN",
+    "name": "Slovenia",
+    "capital": "Ljubljana",
+    "continent": "EU",
+    "population": 2067372,
+    "areaSqKm": 20273.0
+  },
+  {
+    "iso": "SJ",
+    "iso3": "SJM",
+    "name": "Svalbard and Jan Mayen",
+    "capital": "Longyearbyen",
+    "continent": "EU",
+    "population": 2550,
+    "areaSqKm": 62049.0
+  },
+  {
+    "iso": "SK",
+    "iso3": "SVK",
+    "name": "Slovakia",
+    "capital": "Bratislava",
+    "continent": "EU",
+    "population": 5447011,
+    "areaSqKm": 48845.0
+  },
+  {
+    "iso": "SL",
+    "iso3": "SLE",
+    "name": "Sierra Leone",
+    "capital": "Freetown",
+    "continent": "AF",
+    "population": 7650154,
+    "areaSqKm": 71740.0
+  },
+  {
+    "iso": "SM",
+    "iso3": "SMR",
+    "name": "San Marino",
+    "capital": "San Marino",
+    "continent": "EU",
+    "population": 33785,
+    "areaSqKm": 61.2
+  },
+  {
+    "iso": "SN",
+    "iso3": "SEN",
+    "name": "Senegal",
+    "capital": "Dakar",
+    "continent": "AF",
+    "population": 15854360,
+    "areaSqKm": 196190.0
+  },
+  {
+    "iso": "SO",
+    "iso3": "SOM",
+    "name": "Somalia",
+    "capital": "Mogadishu",
+    "continent": "AF",
+    "population": 15008154,
+    "areaSqKm": 637657.0
+  },
+  {
+    "iso": "SR",
+    "iso3": "SUR",
+    "name": "Suriname",
+    "capital": "Paramaribo",
+    "continent": "SA",
+    "population": 575991,
+    "areaSqKm": 163270.0
+  },
+  {
+    "iso": "ST",
+    "iso3": "STP",
+    "name": "Sao Tome and Principe",
+    "capital": "Sao Tome",
+    "continent": "AF",
+    "population": 197700,
+    "areaSqKm": 1001.0
+  },
+  {
+    "iso": "SV",
+    "iso3": "SLV",
+    "name": "El Salvador",
+    "capital": "San Salvador",
+    "continent": "NA",
+    "population": 6420744,
+    "areaSqKm": 21040.0
+  },
+  {
+    "iso": "SX",
+    "iso3": "SXM",
+    "name": "Sint Maarten",
+    "capital": "Philipsburg",
+    "continent": "NA",
+    "population": 40654,
+    "areaSqKm": 21.0
+  },
+  {
+    "iso": "SY",
+    "iso3": "SYR",
+    "name": "Syria",
+    "capital": "Damascus",
+    "continent": "AS",
+    "population": 16906283,
+    "areaSqKm": 185180.0
+  },
+  {
+    "iso": "SZ",
+    "iso3": "SWZ",
+    "name": "Eswatini",
+    "capital": "Mbabane",
+    "continent": "AF",
+    "population": 1136191,
+    "areaSqKm": 17363.0
+  },
+  {
+    "iso": "TC",
+    "iso3": "TCA",
+    "name": "Turks and Caicos Islands",
+    "capital": "Cockburn Town",
+    "continent": "NA",
+    "population": 37665,
+    "areaSqKm": 430.0
+  },
+  {
+    "iso": "TD",
+    "iso3": "TCD",
+    "name": "Chad",
+    "capital": "N'Djamena",
+    "continent": "AF",
+    "population": 15477751,
+    "areaSqKm": 1284000.0
+  },
+  {
+    "iso": "TF",
+    "iso3": "ATF",
+    "name": "French Southern Territories",
+    "capital": "Port-aux-Francais",
+    "continent": "AN",
+    "population": 140,
+    "areaSqKm": 7829.0
+  },
+  {
+    "iso": "TG",
+    "iso3": "TGO",
+    "name": "Togo",
+    "capital": "Lome",
+    "continent": "AF",
+    "population": 7889094,
+    "areaSqKm": 56785.0
+  },
+  {
+    "iso": "TH",
+    "iso3": "THA",
+    "name": "Thailand",
+    "capital": "Bangkok",
+    "continent": "AS",
+    "population": 69428524,
+    "areaSqKm": 514000.0
+  },
+  {
+    "iso": "TJ",
+    "iso3": "TJK",
+    "name": "Tajikistan",
+    "capital": "Dushanbe",
+    "continent": "AS",
+    "population": 9100837,
+    "areaSqKm": 143100.0
+  },
+  {
+    "iso": "TK",
+    "iso3": "TKL",
+    "name": "Tokelau",
+    "capital": "",
+    "continent": "OC",
+    "population": 1466,
+    "areaSqKm": 10.0
+  },
+  {
+    "iso": "TL",
+    "iso3": "TLS",
+    "name": "Timor Leste",
+    "capital": "Dili",
+    "continent": "OC",
+    "population": 1267972,
+    "areaSqKm": 15007.0
+  },
+  {
+    "iso": "TM",
+    "iso3": "TKM",
+    "name": "Turkmenistan",
+    "capital": "Ashgabat",
+    "continent": "AS",
+    "population": 5850908,
+    "areaSqKm": 488100.0
+  },
+  {
+    "iso": "TN",
+    "iso3": "TUN",
+    "name": "Tunisia",
+    "capital": "Tunis",
+    "continent": "AF",
+    "population": 11565204,
+    "areaSqKm": 163610.0
+  },
+  {
+    "iso": "TO",
+    "iso3": "TON",
+    "name": "Tonga",
+    "capital": "Nuku'alofa",
+    "continent": "OC",
+    "population": 103197,
+    "areaSqKm": 748.0
+  },
+  {
+    "iso": "TR",
+    "iso3": "TUR",
+    "name": "Turkey",
+    "capital": "Ankara",
+    "continent": "AS",
+    "population": 82319724,
+    "areaSqKm": 780580.0
+  },
+  {
+    "iso": "TT",
+    "iso3": "TTO",
+    "name": "Trinidad and Tobago",
+    "capital": "Port of Spain",
+    "continent": "NA",
+    "population": 1389858,
+    "areaSqKm": 5128.0
+  },
+  {
+    "iso": "TV",
+    "iso3": "TUV",
+    "name": "Tuvalu",
+    "capital": "Funafuti",
+    "continent": "OC",
+    "population": 11508,
+    "areaSqKm": 26.0
+  },
+  {
+    "iso": "TW",
+    "iso3": "TWN",
+    "name": "Taiwan",
+    "capital": "Taipei",
+    "continent": "AS",
+    "population": 23451837,
+    "areaSqKm": 35980.0
+  },
+  {
+    "iso": "TZ",
+    "iso3": "TZA",
+    "name": "Tanzania",
+    "capital": "Dodoma",
+    "continent": "AF",
+    "population": 56318348,
+    "areaSqKm": 945087.0
+  },
+  {
+    "iso": "UA",
+    "iso3": "UKR",
+    "name": "Ukraine",
+    "capital": "Kyiv",
+    "continent": "EU",
+    "population": 44622516,
+    "areaSqKm": 603700.0
+  },
+  {
+    "iso": "UG",
+    "iso3": "UGA",
+    "name": "Uganda",
+    "capital": "Kampala",
+    "continent": "AF",
+    "population": 42723139,
+    "areaSqKm": 236040.0
+  },
+  {
+    "iso": "UM",
+    "iso3": "UMI",
+    "name": "United States Minor Outlying Islands",
+    "capital": "",
+    "continent": "OC",
+    "population": 0,
+    "areaSqKm": 0.0
+  },
+  {
+    "iso": "US",
+    "iso3": "USA",
+    "name": "United States",
+    "capital": "Washington",
+    "continent": "NA",
+    "population": 327167434,
+    "areaSqKm": 9629091.0
+  },
+  {
+    "iso": "UY",
+    "iso3": "URY",
+    "name": "Uruguay",
+    "capital": "Montevideo",
+    "continent": "SA",
+    "population": 3449299,
+    "areaSqKm": 176220.0
+  },
+  {
+    "iso": "UZ",
+    "iso3": "UZB",
+    "name": "Uzbekistan",
+    "capital": "Tashkent",
+    "continent": "AS",
+    "population": 32955400,
+    "areaSqKm": 447400.0
+  },
+  {
+    "iso": "VA",
+    "iso3": "VAT",
+    "name": "Vatican",
+    "capital": "Vatican City",
+    "continent": "EU",
+    "population": 921,
+    "areaSqKm": 0.44
+  },
+  {
+    "iso": "VC",
+    "iso3": "VCT",
+    "name": "Saint Vincent and the Grenadines",
+    "capital": "Kingstown",
+    "continent": "NA",
+    "population": 110211,
+    "areaSqKm": 389.0
+  },
+  {
+    "iso": "VE",
+    "iso3": "VEN",
+    "name": "Venezuela",
+    "capital": "Caracas",
+    "continent": "SA",
+    "population": 28870195,
+    "areaSqKm": 912050.0
+  },
+  {
+    "iso": "VG",
+    "iso3": "VGB",
+    "name": "British Virgin Islands",
+    "capital": "Road Town",
+    "continent": "NA",
+    "population": 29802,
+    "areaSqKm": 153.0
+  },
+  {
+    "iso": "VI",
+    "iso3": "VIR",
+    "name": "U.S. Virgin Islands",
+    "capital": "Charlotte Amalie",
+    "continent": "NA",
+    "population": 106977,
+    "areaSqKm": 352.0
+  },
+  {
+    "iso": "VN",
+    "iso3": "VNM",
+    "name": "Vietnam",
+    "capital": "Hanoi",
+    "continent": "AS",
+    "population": 95540395,
+    "areaSqKm": 329560.0
+  },
+  {
+    "iso": "VU",
+    "iso3": "VUT",
+    "name": "Vanuatu",
+    "capital": "Port Vila",
+    "continent": "OC",
+    "population": 292680,
+    "areaSqKm": 12200.0
+  },
+  {
+    "iso": "WF",
+    "iso3": "WLF",
+    "name": "Wallis and Futuna",
+    "capital": "Mata Utu",
+    "continent": "OC",
+    "population": 16025,
+    "areaSqKm": 274.0
+  },
+  {
+    "iso": "WS",
+    "iso3": "WSM",
+    "name": "Samoa",
+    "capital": "Apia",
+    "continent": "OC",
+    "population": 196130,
+    "areaSqKm": 2944.0
+  },
+  {
+    "iso": "YE",
+    "iso3": "YEM",
+    "name": "Yemen",
+    "capital": "Sanaa",
+    "continent": "AS",
+    "population": 28498687,
+    "areaSqKm": 527970.0
+  },
+  {
+    "iso": "YT",
+    "iso3": "MYT",
+    "name": "Mayotte",
+    "capital": "Mamoudzou",
+    "continent": "AF",
+    "population": 279471,
+    "areaSqKm": 374.0
+  },
+  {
+    "iso": "ZA",
+    "iso3": "ZAF",
+    "name": "South Africa",
+    "capital": "Pretoria",
+    "continent": "AF",
+    "population": 57779622,
+    "areaSqKm": 1219912.0
+  },
+  {
+    "iso": "ZM",
+    "iso3": "ZMB",
+    "name": "Zambia",
+    "capital": "Lusaka",
+    "continent": "AF",
+    "population": 17351822,
+    "areaSqKm": 752614.0
+  },
+  {
+    "iso": "ZW",
+    "iso3": "ZWE",
+    "name": "Zimbabwe",
+    "capital": "Harare",
+    "continent": "AF",
+    "population": 16868409,
+    "areaSqKm": 390580.0
+  },
+  {
+    "iso": "CS",
+    "iso3": "SCG",
+    "name": "Serbia and Montenegro",
+    "capital": "Belgrade",
+    "continent": "EU",
+    "population": 10829175,
+    "areaSqKm": 102350.0
+  },
+  {
+    "iso": "AN",
+    "iso3": "ANT",
+    "name": "Netherlands Antilles",
+    "capital": "Willemstad",
+    "continent": "NA",
+    "population": 300000,
+    "areaSqKm": 960.0
+  }
+]
