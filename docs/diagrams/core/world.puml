@@ -73,6 +73,7 @@ package world {
         - type: WaterBodyType
     }
 
+    World "1" *-- "0..*" Continent : contains
     Continent "1" *-- "0..*" Country : contains
     Country "1" *-- "0..*" Region : contains
     Region "1" *-- "0..*" Settlement : contains
