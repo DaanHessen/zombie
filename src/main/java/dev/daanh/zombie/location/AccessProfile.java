@@ -1,8 +1,18 @@
 package dev.daanh.zombie.location;
 
-import dev.daanh.zombie.location.locks.Lock;
 import dev.daanh.zombie.location.enums.AccessState;
-import jakarta.persistence.*;
+import dev.daanh.zombie.location.locks.Lock;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,8 +21,8 @@ import java.util.UUID;
 
 @Entity
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class AccessProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

@@ -1,14 +1,26 @@
 package dev.daanh.zombie.location;
 
-import dev.daanh.zombie.world.Region;
-import dev.daanh.zombie.world.Settlement;
-
 import dev.daanh.zombie.location.enums.LocationCategory;
 import dev.daanh.zombie.location.enums.LocationCondition;
 import dev.daanh.zombie.location.enums.LocationSize;
 import dev.daanh.zombie.location.enums.LocationType;
 import dev.daanh.zombie.world.Coordinates;
-import jakarta.persistence.*;
+import dev.daanh.zombie.world.Region;
+import dev.daanh.zombie.world.Settlement;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,8 +29,8 @@ import java.util.UUID;
 
 @Entity
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -41,14 +53,6 @@ public class Location {
     @Embedded
     private Coordinates coordinates;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "region_id")
-    private Region region;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "settlement_id")
-    private Settlement settlement;
-
     private boolean indoors;
 
     private boolean enterable;
@@ -56,6 +60,14 @@ public class Location {
     private boolean searchable;
 
     private boolean generated;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "region_id")
+    private Region region;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "settlement_id")
+    private Settlement settlement;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "loot_profile_id")
