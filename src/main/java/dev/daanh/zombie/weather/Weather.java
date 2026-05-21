@@ -1,16 +1,10 @@
 package dev.daanh.zombie.weather;
 
+import dev.daanh.zombie.core.GameTime;
 import dev.daanh.zombie.world.Region;
 import dev.daanh.zombie.world.Settlement;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -31,7 +25,9 @@ public class Weather {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private long updatedAtTick;
+    @Embedded
+    @AttributeOverride(name = "ticks", column = @Column(name = "updated_at_tick"))
+    private GameTime updatedAt = new GameTime();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "region_id")

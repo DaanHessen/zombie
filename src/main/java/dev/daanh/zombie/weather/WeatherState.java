@@ -1,16 +1,11 @@
 package dev.daanh.zombie.weather;
 
+import dev.daanh.zombie.core.GameTime;
 import dev.daanh.zombie.weather.enums.PrecipitationType;
 import dev.daanh.zombie.weather.enums.WeatherType;
 import dev.daanh.zombie.weather.enums.WindStrength;
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -39,7 +34,9 @@ public class WeatherState {
 
     private int severity;
 
-    private long startedAtTick;
+    @Embedded
+    @AttributeOverride(name = "ticks", column = @Column(name = "started_at_tick"))
+    private GameTime startedAt = new GameTime();
 
     private long durationTicks;
 
@@ -55,7 +52,7 @@ public class WeatherState {
     @Enumerated(EnumType.STRING)
     private PrecipitationType precipitationType;
 
-    public boolean isExpired(long currentTick) {
-        return currentTick >= (this.startedAtTick + this.durationTicks);
+    public boolean isExpired(GameTime time) {
+        return time.getTicks() >= (this.startedAt.getTicks() + this.durationTicks);
     }
 }

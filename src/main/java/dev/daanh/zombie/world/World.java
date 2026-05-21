@@ -1,11 +1,7 @@
 package dev.daanh.zombie.world;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import dev.daanh.zombie.core.GameTime;
+import jakarta.persistence.*;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -33,8 +29,14 @@ public class World {
     @Setter(AccessLevel.NONE)
     private long seed;
 
-    private long gameTicks;
+    @Embedded
+    @AttributeOverride(name = "ticks", column = @Column(name = "game_ticks"))
+    private GameTime time = new GameTime();
 
     @OneToMany(mappedBy = "world", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Continent> continents = new ArrayList<>();
+
+    public void advanceTime() {
+        this.time.advanceTime(1);
+    }
 }
