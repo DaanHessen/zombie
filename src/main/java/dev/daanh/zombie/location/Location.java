@@ -88,4 +88,10 @@ public class Location {
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "structure_profile_id")
     private StructureProfile structureProfile;
+
+    public void search() {
+        if (!this.searchable) { return; }
+
+        this.searchable = false;
+    }
 }

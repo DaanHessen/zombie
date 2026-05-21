@@ -2,6 +2,7 @@ package dev.daanh.zombie.location.locks;
 
 import dev.daanh.zombie.location.AccessProfile;
 
+import dev.daanh.zombie.location.enums.AccessState;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -35,10 +36,34 @@ public abstract class Lock {
 
     private boolean pickable;
 
-    private boolean breakable;
-
     private int durability;
 
     @OneToOne(mappedBy = "lock")
     private AccessProfile accessProfile;
+
+    public void breakLock(int damageAmount) {
+        if (damageAmount <= 0) { return; }
+
+        this.durability = Math.max(0, this.durability - damageAmount);
+
+        if (this.durability <= 0) {
+            this.accessProfile.setState(AccessState.COLLAPSED);
+        }
+    }
+
+    public void openLock() {
+        if (this.accessProfile.getState() == AccessState.OPEN) { return; }
+
+        if (this.durability <= 0) { return; }
+
+        this.accessProfile.setState(AccessState.OPEN);
+    }
+
+    public void closeLock() {
+        if (this.accessProfile.getState() == AccessState.CLOSED) { return; }
+
+        if (this.durability <= 0) { return; }
+
+        this.accessProfile.setState(AccessState.CLOSED);
+    }
 }
