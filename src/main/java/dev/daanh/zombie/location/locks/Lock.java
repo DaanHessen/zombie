@@ -36,6 +36,6 @@ public abstract class Lock {
 
     private int durability;
 
-    @OneToOne(mappedBy = "lock", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "lock")
     private AccessProfile accessProfile;
 }
