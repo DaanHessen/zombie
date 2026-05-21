@@ -39,11 +39,11 @@ public class WeatherState {
 
     private long durationTicks;
 
-    @Enumerated(EnumType.STRING)
-    private WeatherType type;
-
     @Embedded
     private Temperature temperature;
+
+    @Enumerated(EnumType.STRING)
+    private WeatherType type;
 
     @Enumerated(EnumType.STRING)
     private WindStrength windStrength;
