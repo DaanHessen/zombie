@@ -10,6 +10,8 @@ import dev.daanh.zombie.domain.world.World;
 import dev.daanh.zombie.domain.world.enums.BiomeType;
 import dev.daanh.zombie.domain.world.enums.WaterBodyType;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
@@ -19,9 +21,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class WorldGenerator {
-    public World generateWorld() {
+    public World generateWorld(long seed) {
         World world = new World();
+        world.setSeed(seed);
         world.setName("Earth");
 
         Map<String, Continent> continents = loadContinents(world);

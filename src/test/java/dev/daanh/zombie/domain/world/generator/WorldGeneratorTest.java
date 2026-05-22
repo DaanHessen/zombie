@@ -14,7 +14,7 @@ class WorldGeneratorTest {
     @Test
     void testGenerateWorld() {
         WorldGenerator generator = new WorldGenerator();
-        World world = generator.generateWorld();
+        World world = generator.generateWorld(10L);
 
         assertNotNull(world);
         assertEquals("Earth", world.getName());
