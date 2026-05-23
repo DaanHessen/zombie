@@ -1,6 +1,11 @@
 @startuml
 title location domain model
 
+left to right direction
+skinparam linetype ortho
+skinparam nodesep 60
+skinparam ranksep 80
+
 package location {
     enum LocationCategory {
         RESIDENTIAL

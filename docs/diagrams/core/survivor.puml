@@ -1,5 +1,10 @@
 @startuml
-title Survivor Domain Model
+title Survivor Domain Model - Highly Realistic MVP
+
+left to right direction
+skinparam linetype ortho
+skinparam nodesep 60
+skinparam ranksep 80
 
 package survivor {
     enum WoundType {
