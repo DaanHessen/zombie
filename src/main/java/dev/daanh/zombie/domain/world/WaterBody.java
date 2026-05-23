@@ -24,8 +24,4 @@ public class WaterBody {
 
     @Enumerated(EnumType.STRING)
     private WaterBodyType type;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "world_id")
-    private World world;
 }

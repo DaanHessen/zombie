@@ -33,10 +33,6 @@ public class Continent {
     @Setter(AccessLevel.NONE)
     private String code;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "world_id")
-    private World world;
-
     @OneToMany(mappedBy = "continent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Country> countries = new ArrayList<>();
 }

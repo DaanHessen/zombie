@@ -1,0 +1,211 @@
+@startuml
+title location domain model
+
+package location {
+    enum LocationCategory {
+        RESIDENTIAL
+        COMMERCIAL
+        MEDICAL
+        GOVERNMENT
+        EDUCATION
+        INDUSTRIAL
+        TRANSPORT
+        UTILITY
+        MILITARY
+        RELIGIOUS
+        RECREATIONAL
+        NATURAL
+        INFRASTRUCTURE
+        SURVIVAL
+        UNKNOWN
+    }
+
+    enum LocationType {
+        HOUSE
+        APARTMENT_BUILDING
+        HOTEL
+        FARM
+        CABIN
+
+        SUPERMARKET
+        GENERAL_STORE
+        PHARMACY
+        RESTAURANT
+        GAS_STATION
+
+        HOSPITAL
+        CLINIC
+
+        POLICE_STATION
+        FIRE_STATION
+        TOWN_HALL
+
+        SCHOOL
+        UNIVERSITY
+
+        WAREHOUSE
+        FACTORY
+        WORKSHOP
+        CONSTRUCTION_SITE
+
+        TRAIN_STATION
+        BUS_STATION
+        AIRPORT
+        PORT
+        PARKING_LOT
+
+        POWER_PLANT
+        WATER_TREATMENT_PLANT
+        RADIO_TOWER
+
+        MILITARY_BASE
+        CHECKPOINT
+        BUNKER
+
+        CHURCH
+        CEMETERY
+
+        PARK
+        FOREST
+        BEACH
+        CAMPSITE
+
+        ROAD
+        BRIDGE
+        TUNNEL
+
+        SAFEHOUSE
+        SHELTER
+        RUINS
+        UNKNOWN
+    }
+
+    enum LocationSize {
+        TINY
+        SMALL
+        MEDIUM
+        LARGE
+        HUGE
+    }
+
+    enum LocationCondition {
+        INTACT
+        WORN
+        DAMAGED
+        RUINED
+        BURNED
+        FLOODED
+        ABANDONED
+        OVERRUN
+        UNKNOWN
+    }
+
+    enum AccessState {
+        OPEN
+        CLOSED
+        LOCKED
+        BARRICADED
+        BLOCKED
+        COLLAPSED
+        RESTRICTED
+        UNKNOWN
+    }
+
+    abstract class Lock {
+        - id: UUID
+        - difficulty: int
+        - pickable: boolean
+        - breakable: boolean
+        - durability: int
+        + breakLock(int damageAmount)
+        + openLock()
+    }
+
+    class KeyLock {
+        - keyId: String
+    }
+
+    class CodeLock {
+        - code: String
+        - codeLength: int
+    }
+
+    class KeycardLock {
+        - keycardId: String
+        - accessLevel: int
+        - requiresPower: boolean
+    }
+
+    class Location {
+        - id: UUID
+        - name: String
+        - type: LocationType
+        - category: LocationCategory
+        - size: LocationSize
+        - condition: LocationCondition
+        - coordinates: Coordinates
+        - region: Region
+        - settlement: Settlement
+        - indoor: boolean
+        - enterable: boolean
+        - searchable: boolean
+        - generated: boolean
+        + search()
+    }  
+
+    class LootProfile {
+        - id: UUID
+        - foodChance: double
+        - medicineChance: double
+        - weaponChance: double
+        - toolChance: double
+        - fuelChance: double
+        - clothingChance: double
+        - junkChance: double
+    }
+
+    class DangerProfile {
+        - id: UUID
+        - zombieRisk: double
+        - humanRisk: double
+        - animalRisk: double
+        - diseaseRisk: double
+        - structuralRisk: double
+        - fireRisk: double
+    }
+
+    class StructureProfile {
+        - id: UUID
+        - floors: int
+        - rooms: int
+        - hasBasement: boolean
+        - hasRoofAccess: boolean
+        - hasPower: boolean
+        - hasWater: boolean
+    }
+
+    class AccessProfile {
+        - id: UUID
+        - accessState: AccessState
+        - requiresTool: boolean
+        - requiresClimbing: boolean
+        - requiresSwimming: boolean
+    }
+
+    Lock <|-- KeyLock
+    Lock <|-- CodeLock
+    Lock <|-- KeycardLock
+
+    Location "1" *-- "1" LootProfile : default loot
+    Location "1" *-- "1" StructureProfile : structure
+    Location "1" *-- "1" DangerProfile : default danger
+    Location "1" *-- "1" AccessProfile : access
+
+    AccessProfile "1" *-- "0..1" Lock : lock
+
+    Location "0..*" --> "1" Region : located in
+    Location "0..*" --> "0..1" Settlement : inside
+    Location "0..*" --> "1" Coordinates : positioned at 
+}
+
+@enduml

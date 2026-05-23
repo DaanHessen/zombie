@@ -1,0 +1,94 @@
+@startuml
+title weather domain model
+
+package weather {
+    enum WeatherType {
+        CLEAR
+        PARTLY_CLOUDY
+        CLOUDY
+        FOG
+        DRIZZLE
+        RAIN
+        HEAVY_RAIN
+        THUNDERSTORM
+        SNOW
+        HEAVY_SNOW
+        BLIZZARD
+        HAIL
+        HEATWAVE
+        COLD_SNAP
+        DUST_STORM
+        UNKNOWN
+    }
+
+    enum PrecipitationType {
+        NONE
+        RAIN
+        SNOW
+        HAIL
+        SLEET
+        UNKNOWN
+    }
+
+    enum WindStrength {
+        CALM
+        LIGHT
+        MODERATE
+        STRONG
+        GALE
+        STORM
+        UNKNOWN
+    }
+
+    class Temperature {
+        - celsius: double
+    }
+
+    class Weather {
+        - id: UUID
+        - region: Region
+        - settlement: Settlement
+        - currentState: WeatherState
+        - profile: WeatherProfile
+        - updatedAtTick: long
+    }
+
+    class WeatherState {
+        - id: UUID
+        - type: WeatherType
+        - temperature: Temperature
+        - precipitationType: PrecipitationType
+        - precipitationIntensity: double
+        - humidity: double
+        - windStrength: WindStrength
+        - visibility: double
+        - severity: int
+        - startedAtTick: long
+        - durationTicks: long
+    }
+
+    class WeatherProfile {
+        - id: UUID
+        - biome: BiomeType
+        - averageTemperature: Temperature
+        - minTemperature: Temperature
+        - maxTemperature: Temperature
+        - rainChance: double
+        - stormChance: double
+        - snowChance: double
+        - fogChance: double
+        - windChance: double
+    }
+
+    Weather "0..*" --> "1" Region : applies to
+    Weather "0..*" --> "0..1" Settlement : optionally local to
+    Weather "1" *-- "1" WeatherState : current state
+    Weather "1" *-- "1" WeatherProfile : generation profile
+
+    WeatherState "1" --> "1" Temperature : current temperature
+    WeatherProfile "1" --> "1" Temperature : average temperature
+    WeatherProfile "1" --> "1" Temperature : min temperature
+    WeatherProfile "1" --> "1" Temperature : max temperature
+}
+
+@enduml

@@ -1,0 +1,157 @@
+@startuml
+title Survivor Domain Model
+
+package survivor {
+    enum WoundType {
+        SCRATCH
+        LACERATION
+        BITE
+        PUNCTURE
+        GUNSHOT
+        BURN
+        FRACTURE
+    }
+
+    enum BodyPartType {
+        HEAD
+        NECK
+        LEFT_ARM
+        RIGHT_ARM
+        UPPER_TORSO
+        LOWER_TORSO
+        LEFT_LEG
+        RIGHT_LEG
+        SYSTEMIC
+    }
+
+    enum InfectionType {
+        BACTERIAL
+        FUNGAL
+        FOOD_POISONING
+        CHOLERA
+        ZOMBIE_VIRUS
+    }
+
+    enum SurvivorStatus {
+        ALIVE
+        UNCONSCIOUS
+        DEAD
+        TURNING
+        ZOMBIE
+    }
+
+    enum ConditionType {
+        EXHAUSTION
+        DEHYDRATION
+        STARVATION
+        HYPOTHERMIA
+        POISONING
+        FEVER
+        SHOCK
+        PANIC
+        SLEEP_DEPRIVATION
+    }
+
+    class Survivor extends BaseState {
+        - name: String
+        - age: int
+        - status: SurvivorStatus
+        - skills: SkillsProfile
+        - stats: StatsProfile
+        - health: HealthProfile
+        - group: Group
+        - inventory: Inventory
+        - coordinates: Coordinates
+        - infections: List<Infection>
+        - wounds: List<Wound>
+        - conditions: List<Condition>
+    }
+
+    class Group extends BaseState {
+        - survivors: List<Survivor>
+    }
+
+    class Wound extends BaseState {
+        - type: WoundType
+        - severity: int
+        - duration: int
+        - bloodLossPerTick: int
+        - isBandaged: boolean
+        - isTreated: boolean
+        - infectionRisk: int
+        - bodyPart: BodyPartType
+        - infections: List<Infection>
+        - survivor: Survivor
+    }
+
+    class Infection extends BaseState {
+        - type: InfectionType
+        - severity: int
+        - duration: int
+        - curable: boolean
+        - bodyPart: BodyPartType
+        - wound: Wound
+        - survivor: Survivor
+    }
+
+    class Condition extends BaseState {
+        - type: ConditionType
+        - severity: int
+        - duration: int
+        - curable: boolean
+        - survivor: Survivor
+    }
+
+    class SkillsProfile <<embeddable>> {
+        - crafting: int
+        - hacking: int
+        - medical: int
+        - stealth: int
+    }
+
+    class StatsProfile <<embeddable>> {
+        - intelligence: int
+        - endurance: int
+        - strength: int
+        - agility: int
+    }
+
+    class HealthProfile <<embeddable>> {
+        - health: int
+        - hunger: int
+        - thirst: int
+        - stamina: int
+        - bloodVolume: int
+        - pain: int
+        - fatigue: int
+        - bodyParts: List<BodyPartStatus>
+    }
+
+    class BodyPartStatus <<embeddable>> {
+        - type: BodyPartType
+        - health: int
+        - pain: int
+        - bleeding: int
+        - disabled: boolean
+    }
+
+    Group "1" o-- "*" Survivor : contains >
+    Survivor "*" --> "0..1" Group : belongs to >
+
+    Survivor "1" *-- "*" Wound : suffers from >
+    Wound "*" --> "1" Survivor : affects >
+
+    Survivor "1" *-- "*" Infection : infected by >
+    Infection "*" --> "1" Survivor : infects >
+
+    Wound "0..1" *-- "*" Infection : might cause >
+
+    HealthProfile *-- "*" BodyPartStatus
+
+    Condition "*" --> "1" Survivor : affects >
+
+    Survivor *-- SkillsProfile
+    Survivor *-- StatsProfile
+    Survivor *-- HealthProfile
+}
+@enduml

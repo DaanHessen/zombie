@@ -32,12 +32,6 @@ public class World {
     @AttributeOverride(name = "ticks", column = @Column(name = "game_ticks"))
     private GameTime time = new GameTime();
 
-    @OneToMany(mappedBy = "world", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Continent> continents = new ArrayList<>();
-
-    @OneToMany(mappedBy = "world", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<WaterBody> waterBodies = new ArrayList<>();
-
     public void advanceTime() {
         this.time = this.time.plus(1);
     }

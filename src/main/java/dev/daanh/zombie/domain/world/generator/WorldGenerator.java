@@ -26,16 +26,6 @@ public class WorldGenerator {
 //        seedTable(conn, "road_nodes", "id, latitude, longitude, settlement_id", "/data/road_nodes.csv.gz");
 //        seedTable(conn, "road_segments", "id, name, start_node_id, end_node_id, type, blocked, settlement_id", "/data/road_segments.csv.gz");
 //        seedTable(conn, "special_locations", "id, name, type, latitude, longitude, looted, settlement_id", "/data/special_locations.csv.gz");
-
-        try (PreparedStatement pst = conn.prepareStatement("UPDATE continent SET world_id = ? WHERE world_id IS NULL")) {
-            pst.setObject(1, worldId);
-            pst.executeUpdate();
-        }
-
-        try (PreparedStatement pst = conn.prepareStatement("UPDATE water_body SET world_id = ? WHERE world_id IS NULL")) {
-            pst.setObject(1, worldId);
-            pst.executeUpdate();
-        }
     }
 
     private void seedTable(Connection conn, String tableName, String columns, String resourcePath) throws Exception {
