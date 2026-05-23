@@ -2,6 +2,7 @@ package dev.daanh.zombie.domain.world.chunks;
 
 import dev.daanh.zombie.domain.core.BaseState;
 import dev.daanh.zombie.domain.world.Settlement;
+import dev.daanh.zombie.domain.world.enums.ChunkState;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,6 +15,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Chunk extends BaseState {
+    @Transient
+    private ChunkState state = ChunkState.HIBERNATING;
+
     @Embedded
     private ChunkCoordinates coordinates;
 

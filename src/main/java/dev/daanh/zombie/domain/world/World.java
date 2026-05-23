@@ -1,5 +1,6 @@
 package dev.daanh.zombie.domain.world;
 
+import dev.daanh.zombie.config.GameConfig;
 import dev.daanh.zombie.domain.core.GameTime;
 import jakarta.persistence.*;
 
@@ -33,6 +34,6 @@ public class World {
     private GameTime time = new GameTime();
 
     public void advanceTime() {
-        this.time = this.time.plus(1);
+        this.time = this.time.plus(GameConfig.getMinutesPerTick());
     }
 }

@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: zombie
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/zombiedb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      format_sql: false
+      hibernate:
+        order_inserts: true
+        order_updates: true
+        jdbc:
+          batch_size: 500
+          batch_versioned_data: true
+
+game:
+  world:
+    chunk-size-km: 1.0
+  simulation:
+    minutes-per-tick: 1
