@@ -85,7 +85,6 @@ package world {
 
     package chunk {
         class Chunk extends BaseState {
-            - id: UUID
             - coordinate: ChunkCoordinate
             - settlement: Settlement
             - generatedAt: LocalDateTime
