@@ -23,4 +23,4 @@ public class GameConfig {
         private int tickRateMs;
         private int minutesPerTick;
     }
-}\
+}
