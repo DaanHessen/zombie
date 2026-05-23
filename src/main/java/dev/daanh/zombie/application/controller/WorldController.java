@@ -1,5 +1,6 @@
-package dev.daanh.zombie.controller;
+package dev.daanh.zombie.application.controller;
 
+import dev.daanh.zombie.application.dto.response.WorldResponse;
 import dev.daanh.zombie.service.WorldService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/world")
 @AllArgsConstructor
 public class WorldController {
-    private final WorldService worldGeneratorService;
+    private final WorldService worldService;
 
     @PostMapping("/generate")
-    public void generateWorld() throws Exception {
-        worldGeneratorService.seedWorld();
+    public WorldResponse generateWorld() throws Exception {
+        return worldService.seedWorld();
     }
 }
