@@ -1,14 +1,23 @@
 package dev.daanh.zombie.service;
 
+import dev.daanh.zombie.application.dto.response.ChunkResponse;
+import dev.daanh.zombie.config.GameConfig;
 import dev.daanh.zombie.domain.player.PlayerPosition;
+import dev.daanh.zombie.domain.world.Coordinates;
+import dev.daanh.zombie.domain.world.Settlement;
+import dev.daanh.zombie.domain.world.chunks.Chunk;
+import dev.daanh.zombie.domain.world.chunks.ChunkCoordinates;
 import dev.daanh.zombie.domain.world.chunks.generator.ChunkGenerator;
+import dev.daanh.zombie.domain.world.enums.ChunkState;
+import dev.daanh.zombie.repository.ChunkCoordinatesRepository;
 import dev.daanh.zombie.repository.ChunkRepository;
-import dev.daanh.zombie.service.dto.ChunkResponse;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -18,11 +27,45 @@ import java.util.UUID;
 public class ChunkService {
     private final ChunkGenerator chunkGenerator;
     private final ChunkRepository chunkRepository;
+    private final ChunkCoordinatesRepository chunkCoordinatesRepository;
     private final PlayerService playerService;
+    private final GameConfig config;
 
-    public List<ChunkResponse> loadOrGenerateSurroundingChunk(int x, int z, UUID playerId) {
+    public List<ChunkResponse> getChunks(UUID playerId) {
+        List<Chunk> activeGrid = new ArrayList<>();
+
         PlayerPosition playerPosition = playerService.getPlayerPosition(playerId);
+        double latitude = playerPosition.getCoordinates().getLatitude();
+        double longitude = playerPosition.getCoordinates().getLongitude();
 
-        // continue tomorrow
+        int radius = config.getChunk().getChunkGenerationRadius();
+        double size = config.getWorld().getChunkSizeKm();
+
+        ChunkCoordinates center = ChunkCoordinates.gpsToChunk(latitude, longitude, size);
+
+        for (int dx = -radius; dx <= radius; dx++) {
+            for (int dz = -radius; dz <= radius; dz++) {
+                int x = center.getX() + dx;
+                int y = center.getZ() + dz;
+
+                ChunkCoordinates coordinates = new ChunkCoordinates(x, y);
+
+                // later on we add caching so check if it exists
+
+                Chunk chunk = chunkRepository.findByCoordinates(coordinates);
+
+                if (chunk == null) {
+                    chunk = chunkGenerator.generate(x, y);
+                    chunk.setState(ChunkState.ACTIVE);
+
+                    activeGrid.add(chunk);
+                    chunkRepository.save(chunk);
+                }
+            }
+        }
+
+        return activeGrid.stream()
+                .map(chunk -> ChunkResponse.from(chunk, null))
+                .toList();
     }
 }

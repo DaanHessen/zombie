@@ -5,6 +5,7 @@ import dev.daanh.zombie.domain.world.chunks.ChunkCoordinates;
 import dev.daanh.zombie.domain.world.enums.ChunkState;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StopWatch;
 
 import java.time.LocalDateTime;
 
@@ -13,11 +14,18 @@ import java.time.LocalDateTime;
 public class ChunkGenerator {
     public static final int GENERATOR_VERSION = 1;
 
-    public void generate(int x, int z) {
+    public Chunk generate(int x, int z) {
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start("Chunk generation");
+
         ChunkCoordinates coordinates = new ChunkCoordinates(x, z);
 
         log.info("Generating chunk at coordinates {}", coordinates);
+        stopWatch.stop();
 
-        Chunk chunk = new Chunk(ChunkState.ACTIVE, coordinates, null, LocalDateTime.now(), GENERATOR_VERSION);
+        Chunk chunk = new Chunk(ChunkState.ACTIVE, coordinates, null, LocalDateTime.now(), GENERATOR_VERSION, stopWatch.getTotalTimeMillis());
+
+        log.info("Chunk generation completed in {} ms", stopWatch.getTotalTimeMillis());
+        return chunk;
     }
 }

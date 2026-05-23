@@ -24,7 +24,6 @@ public record WorldResponse(
                 stats.regions(),
                 stats.settlements(),
                 generationTimeMs
-
         );
     }
 }

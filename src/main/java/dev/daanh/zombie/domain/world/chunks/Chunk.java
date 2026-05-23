@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 @Getter
@@ -27,4 +26,6 @@ public class Chunk extends BaseState {
     private LocalDateTime generatedAt;
 
     private int generatorVersion;
+
+    private long generationTimeMs;
 }

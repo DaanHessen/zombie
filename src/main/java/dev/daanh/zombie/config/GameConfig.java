@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 public class GameConfig {
     private World world = new World();
     private Simulation simulation = new Simulation();
+    private Chunk chunk = new Chunk();
 
     @Getter @Setter
     public static class World {
@@ -25,5 +26,10 @@ public class GameConfig {
         private int tickRateMs;
         private int minutesPerTick;
         private String startTime;
+    }
+
+    @Getter @Setter
+    public static class Chunk {
+        private int chunkGenerationRadius;
     }
 }
