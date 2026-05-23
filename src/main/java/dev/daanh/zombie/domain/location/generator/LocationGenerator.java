@@ -20,7 +20,7 @@ public class LocationGenerator {
     }
 
     private int calculateAmountOfLocations(Settlement settlement, Random random) {
-        int population = settlement.getPopulation();
+        int population = settlement.getPreApocalypsePopulation();
         int amount;
 
         if (population < 500) { amount = 1 + random.nextInt(10); }

@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class WorldController {
     private final WorldService worldService;
 
-    @PostMapping("/seed")
-    public WorldResponse seedWorld() throws Exception {
-        return worldService.seedWorld();
+    @PostMapping("/generate")
+    public WorldResponse generate() throws Exception {
+        return worldService.generate();
     }
 }

@@ -5,6 +5,7 @@ import dev.daanh.zombie.domain.world.World;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
@@ -17,9 +18,9 @@ public interface WorldRepository extends JpaRepository<World, UUID> {
             (SELECT COUNT(c) FROM Continent c),
             (SELECT COUNT(co) FROM Country co),
             (SELECT COUNT(r) FROM Region r),
-            (SELECT COUNT(s) FROM Settlement s),
+            (SELECT COUNT(s) FROM SettlementState s WHERE s.world.id = :worldId),
             (SELECT COUNT(w) FROM WaterBody w)
         )
     """)
-    WorldStatsResponse getWorldStats();
+    WorldStatsResponse getWorldStats(@Param("worldId") UUID worldId);
 }

@@ -2,6 +2,8 @@ package dev.daanh.zombie.service;
 
 import dev.daanh.zombie.application.dto.response.WorldResponse;
 import dev.daanh.zombie.application.dto.response.WorldStatsResponse;
+import dev.daanh.zombie.domain.world.Settlement;
+import dev.daanh.zombie.domain.world.SettlementState;
 import dev.daanh.zombie.domain.world.World;
 import dev.daanh.zombie.domain.world.generator.WorldGenerator;
 import dev.daanh.zombie.repository.WorldRepository;
@@ -14,8 +16,8 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StopWatch;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
+import java.util.List;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -23,35 +25,23 @@ import java.sql.Connection;
 @Transactional
 public class WorldService {
     private final WorldRepository worldRepository;
-    private final WorldGenerator worldGenerator;
-    private final DataSource dataSource;
+    private final SettlementService settlementService;
 
-//    @EventListener(ApplicationReadyEvent.class)
-//    public WorldResponse seedWorld() throws Exception {
-//        StopWatch stopWatch = new StopWatch();
-//        stopWatch.start();
-//
-//        World world = new World();
-//        world.setName("Earth");
-//        worldRepository.save(world);
-//        log.info("World seeded: " + world.getName());
-//
-//        try (Connection conn = dataSource.getConnection();) {
-//
-//
-//            worldGenerator.seedWorld(conn, world.getId());
-//            log.info("World seeded: " + world.getName());
-//        }
-//
-//        WorldStatsResponse stats = worldRepository.getWorldStats();
-//
-//        stopWatch.stop();
-//
-//        long seedingTimeMs = stopWatch.getTotalTimeMillis();
-//        log.info("World seeding time: " + seedingTimeMs + "ms");
-//
-//        return WorldResponse.from(world, stats, seedingTimeMs);
-//    }
+    public WorldResponse generate() {
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start("World generation");
 
-    public 
+        World world = new World();
+        world.setName("Earth");
+        worldRepository.save(world);
+
+        settlementService.generateSettlementStates(world);
+
+        WorldStatsResponse stats = worldRepository.getWorldStats(world.getId());
+
+        stopWatch.stop();
+        log.info("World generation completed in {} ms", stopWatch.getTotalTimeMillis());
+
+        return WorldResponse.from(world, stats, stopWatch.getTotalTimeMillis());
+    }
 }

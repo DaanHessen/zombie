@@ -28,7 +28,7 @@ public class DatabaseInitializer {
         }
 
         StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
+        stopWatch.start("Database initialization");
 
         log.info("Initializing database...");
 
