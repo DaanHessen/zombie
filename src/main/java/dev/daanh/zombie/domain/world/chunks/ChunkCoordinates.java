@@ -6,8 +6,8 @@ import lombok.*;
 
 @Embeddable
 @Getter
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
-@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode
 public class ChunkCoordinates {
     private int x;

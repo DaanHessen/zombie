@@ -18,6 +18,6 @@ public class Player {
 
     private String name;
 
-    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
     private PlayerPosition position;
 }

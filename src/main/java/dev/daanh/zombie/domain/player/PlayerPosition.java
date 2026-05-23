@@ -4,10 +4,7 @@ import dev.daanh.zombie.domain.core.BaseState;
 import dev.daanh.zombie.domain.location.Location;
 import dev.daanh.zombie.domain.world.Coordinates;
 import dev.daanh.zombie.domain.world.Settlement;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PlayerPosition extends BaseState {
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     private Player player;
 
     @Embedded

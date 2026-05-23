@@ -15,8 +15,6 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Chunk extends BaseState {
-    public static final int GENERATOR_VERSION = 1;
-
     @Transient
     private ChunkState state = ChunkState.HIBERNATING;
 
@@ -28,5 +26,5 @@ public class Chunk extends BaseState {
 
     private LocalDateTime generatedAt;
 
-    private int generatorVersion = GENERATOR_VERSION;
+    private int generatorVersion;
 }
