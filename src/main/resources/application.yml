@@ -25,5 +25,9 @@ spring:
 game:
   world:
     chunk-size-km: 1.0
+    name: "Earth"
+    default-seed: 42
   simulation:
+    tick-rate-ms: 1000
     minutes-per-tick: 1
+    start-time: "2026-01-01T00:00:00Z"

@@ -16,11 +16,14 @@ public class GameConfig {
     @Getter @Setter
     public static class World {
         private double chunkSizeKm;
+        private String name;
+        private long defaultSeed;
     }
 
     @Getter @Setter
     public static class Simulation {
         private int tickRateMs;
         private int minutesPerTick;
+        private String startTime;
     }
 }

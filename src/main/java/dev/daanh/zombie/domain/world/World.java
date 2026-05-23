@@ -33,7 +33,7 @@ public class World {
     @AttributeOverride(name = "ticks", column = @Column(name = "game_ticks"))
     private GameTime time = new GameTime();
 
-    public void advanceTime() {
-        this.time = this.time.plus(GameConfig.getMinutesPerTick());
+    public void advanceTime(int minutesPerTick) {
+        this.time = this.time.plus(minutesPerTick);
     }
 }
