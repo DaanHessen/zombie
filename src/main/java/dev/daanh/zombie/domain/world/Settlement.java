@@ -47,4 +47,6 @@ public class Settlement {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "region_id")
     private Region region;
+
+    private String language;
 }

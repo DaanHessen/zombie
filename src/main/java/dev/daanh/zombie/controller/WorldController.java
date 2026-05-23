@@ -14,7 +14,7 @@ public class WorldController {
     private final WorldService worldGeneratorService;
 
     @PostMapping("/generate")
-    public void generateWorld(@RequestParam(name = "seed", required = false) Long seed) {
-        worldGeneratorService.generateWorld(seed != null ? seed : 42L);
+    public void generateWorld() throws Exception {
+        worldGeneratorService.seedWorld();
     }
 }
