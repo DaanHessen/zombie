@@ -37,8 +37,6 @@ public class Settlement {
     @Embedded
     private Coordinates coordinates;
 
-    private int population;
-
     private String timezone;
 
     @Enumerated(EnumType.STRING)

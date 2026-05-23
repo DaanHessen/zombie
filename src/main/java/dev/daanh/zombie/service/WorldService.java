@@ -6,6 +6,7 @@ import dev.daanh.zombie.domain.world.World;
 import dev.daanh.zombie.domain.world.generator.WorldGenerator;
 import dev.daanh.zombie.repository.WorldRepository;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ import java.sql.Connection;
 @Service
 @AllArgsConstructor
 @Slf4j
+@Transactional
 public class WorldService {
     private final WorldRepository worldRepository;
     private final WorldGenerator worldGenerator;
@@ -29,7 +31,7 @@ public class WorldService {
         World world = new World();
         world.setName("Earth");
         worldRepository.save(world);
-        log.info("World generated: " + world.getName());
+        log.info("World seeded: " + world.getName());
 
         try (Connection conn = dataSource.getConnection();) {
 
@@ -42,9 +44,9 @@ public class WorldService {
 
         stopWatch.stop();
 
-        long generationTimeMs = stopWatch.getTotalTimeMillis();
-        log.info("World generation time: " + generationTimeMs + "ms");
+        long seedingTimeMs = stopWatch.getTotalTimeMillis();
+        log.info("World seeding time: " + seedingTimeMs + "ms");
 
-        return WorldResponse.from(world, stats, generationTimeMs);
+        return WorldResponse.from(world, stats, seedingTimeMs);
     }
 }

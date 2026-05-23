@@ -18,8 +18,6 @@ import org.postgresql.core.BaseConnection;
 @Slf4j
 public class WorldGenerator {
     public void seedWorld(Connection conn, UUID worldId) throws Exception {
-
-
         seedTable(conn, "continent", "id, name, code", "/data/continents.csv.gz");
         seedTable(conn, "country", "id, name, code, capital, population, square_kilometers, continent_id", "/data/countries.csv.gz");
         seedTable(conn, "region", "id, name, code, country_id", "/data/regions.csv.gz");
@@ -29,12 +27,12 @@ public class WorldGenerator {
 //        seedTable(conn, "road_segments", "id, name, start_node_id, end_node_id, type, blocked, settlement_id", "/data/road_segments.csv.gz");
 //        seedTable(conn, "special_locations", "id, name, type, latitude, longitude, looted, settlement_id", "/data/special_locations.csv.gz");
 
-        try (PreparedStatement pst = conn.prepareStatement("UPDATE continent SET world_id = ?")) {
+        try (PreparedStatement pst = conn.prepareStatement("UPDATE continent SET world_id = ? WHERE world_id IS NULL")) {
             pst.setObject(1, worldId);
             pst.executeUpdate();
         }
 
-        try (PreparedStatement pst = conn.prepareStatement("UPDATE water_body SET world_id = ?")) {
+        try (PreparedStatement pst = conn.prepareStatement("UPDATE water_body SET world_id = ? WHERE world_id IS NULL")) {
             pst.setObject(1, worldId);
             pst.executeUpdate();
         }

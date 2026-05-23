@@ -48,17 +48,10 @@ public class Location {
     @Enumerated(EnumType.STRING)
     private LocationCategory category;
 
-    @Enumerated(EnumType.STRING)
-    private LocationCondition condition;
-
     @Embedded
     private Coordinates coordinates;
 
     private boolean indoors;
-
-    private boolean enterable;
-
-    private boolean searchable;
 
     private boolean generated;
 
@@ -85,20 +78,4 @@ public class Location {
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "structure_profile_id")
     private StructureProfile structureProfile;
-
-    public void search() {
-        if (!this.searchable) { return; }
-
-        this.searchable = false;
-    }
-
-    public void degradeCondition() {
-        if (this.condition == null) { return; }
-
-        if (this.condition == LocationCondition.INTACT) {
-            this.condition = LocationCondition.WORN;
-        } else if (this.condition == LocationCondition.WORN) {
-            this.condition = LocationCondition.DAMAGED;
-        }
-    }
 }
