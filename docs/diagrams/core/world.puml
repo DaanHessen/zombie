@@ -82,6 +82,24 @@ package world {
     Continent "1" *-- "0..*" Country : contains
     Country "1" *-- "0..*" Region : contains
     Region "1" *-- "0..*" Settlement : contains
+
+    package chunk {
+        class Chunk extends BaseState {
+            - id: UUID
+            - coordinate: ChunkCoordinate
+            - settlement: Settlement
+            - generatedAt: LocalDateTime
+            - generatorVersion: int
+        }
+
+        class ChunkCoordinate {
+            - x: int
+            - y: int
+        }
+    }
+
+    Chunk "0..*" -- "1" ChunkCoordinate
+    Chunk "0..*" -- "0..1" Settlement : located in
 }
 
 @enduml

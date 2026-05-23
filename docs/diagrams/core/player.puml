@@ -1,0 +1,18 @@
+@startuml
+title player domain model
+
+class Player {
+    - id: UUID
+    - name: String
+    - position: PlayerPosition
+}
+
+class PlayerPosition extends BaseState {
+    - coordinates: Coordinates
+    - location: Location
+    - settlement: Settlement
+}
+
+Player "1" -- "0..*" PlayerPosition
+
+@enduml
