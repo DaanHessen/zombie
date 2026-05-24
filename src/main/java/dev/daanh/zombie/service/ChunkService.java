@@ -1,8 +1,7 @@
 package dev.daanh.zombie.service;
 
-import dev.daanh.zombie.application.dto.response.ChunkResponse;
 import dev.daanh.zombie.config.GameConfig;
-import dev.daanh.zombie.domain.player.PlayerPosition;
+import dev.daanh.zombie.domain.world.Coordinates;
 import dev.daanh.zombie.domain.world.World;
 import dev.daanh.zombie.domain.world.chunks.Chunk;
 import dev.daanh.zombie.domain.world.chunks.ChunkCoordinates;
@@ -17,7 +16,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,15 +25,13 @@ import java.util.stream.Collectors;
 public class ChunkService {
     private final ChunkGenerator chunkGenerator;
     private final ChunkRepository chunkRepository;
-    private final PlayerService playerService;
     private final GameConfig config;
 
-    public List<ChunkResponse> getChunks(UUID playerId) {
+    public List<Chunk> getChunks(Coordinates coordinates, World world) {
         List<Chunk> activeGrid = new ArrayList<>();
 
-        PlayerPosition playerPosition = playerService.getPlayerPosition(playerId);
-        double latitude = playerPosition.getCoordinates().getLatitude();
-        double longitude = playerPosition.getCoordinates().getLongitude();
+        double latitude = coordinates.getLatitude();
+        double longitude = coordinates.getLongitude();
 
         int radius = config.getChunk().getChunkGenerationRadius();
         double size = config.getWorld().getChunkSizeKm();
@@ -56,10 +52,9 @@ public class ChunkService {
                 int x = center.getX() + dx;
                 int z = center.getZ() + dz;
 
-                ChunkCoordinates coordinates = new ChunkCoordinates(x, z);
+                ChunkCoordinates chunkCoordinates = new ChunkCoordinates(x, z);
 
-                Chunk chunk = cachedChunksMap.get(coordinates);
-                World world = playerPosition.getWorld();
+                Chunk chunk = cachedChunksMap.get(chunkCoordinates);
 
                 if (chunk == null) {
                     chunk = chunkGenerator.generate(x, z, world);
@@ -70,8 +65,6 @@ public class ChunkService {
             }
         }
 
-        return activeGrid.stream()
-                .map(chunk -> ChunkResponse.from(chunk, null))
-                .toList();
+        return activeGrid;
     }
 }
