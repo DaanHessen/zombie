@@ -16,7 +16,7 @@ public class WorldController {
     private final WorldService worldService;
 
     @PostMapping("/generate")
-    public WorldResponse generate() throws Exception {
+    public WorldResponse generate() {
         return worldService.generate();
     }
 }

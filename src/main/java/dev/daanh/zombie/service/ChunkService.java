@@ -16,7 +16,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -40,6 +42,15 @@ public class ChunkService {
 
         ChunkCoordinates center = ChunkCoordinates.gpsToChunk(latitude, longitude, size);
 
+        int minX = center.getX() - radius;
+        int maxX = center.getX() + radius;
+        int minZ = center.getZ() - radius;
+        int maxZ = center.getZ() + radius;
+
+        List<Chunk> cachedChunks = chunkRepository.findByCoordinatesXBetweenAndCoordinatesZBetween(minX, maxX, minZ, maxZ);
+        Map<ChunkCoordinates, Chunk> cachedChunksMap = cachedChunks.stream()
+                .collect(Collectors.toMap(Chunk::getCoordinates, chunk -> chunk));
+
         for (int dx = -radius; dx <= radius; dx++) {
             for (int dz = -radius; dz <= radius; dz++) {
                 int x = center.getX() + dx;
@@ -47,9 +58,7 @@ public class ChunkService {
 
                 ChunkCoordinates coordinates = new ChunkCoordinates(x, z);
 
-                // later on we add caching so check if it exists
-
-                Chunk chunk = chunkRepository.findByCoordinates(coordinates);
+                Chunk chunk = cachedChunksMap.get(coordinates);
                 World world = playerPosition.getWorld();
 
                 if (chunk == null) {
