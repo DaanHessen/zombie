@@ -1,0 +1,64 @@
+@startuml
+title inventory domain model
+
+package inventory {
+    class Inventory {
+        - id: UUID
+        - slots: List<InventorySlot>
+        - maxWeight: double
+        - maxVolume: double
+    }
+
+    class InventorySlot {
+        - id: UUID
+        - itemStack: ItemStack
+    }
+
+    package items {
+
+        enum ItemCategory {
+            WEAPON
+            AMMO
+            FOOD
+            MEDICINE
+            RESOURCE
+            CLOTHING
+        }
+
+        enum ItemType {
+            MELEE_WEAPON
+            RANGED_WEAPON
+            CONSUMABLE
+            MEDICAL
+            MATERIAL
+            EQUIPMENT
+        }
+
+        class BaseItem {
+            - id: UUID
+            - name: String
+            - description: String
+            - category: ItemCategory
+            - weight: double
+            - volume: double
+            - maxStackSize: int
+        }
+
+        class Item extends BaseItem {
+            - type: ItemType
+            - durability: int
+            - maxDurability: int
+        }
+
+        class ItemStack {
+            - id: UUID
+            - item: Item
+            - amount: int
+        }
+    }
+
+    Inventory "1" *-- "*" InventorySlot : contains >
+    InventorySlot "1" o-- "0..1" ItemStack : holds >
+    ItemStack "*" --> "1" Item : references >
+}
+@enduml

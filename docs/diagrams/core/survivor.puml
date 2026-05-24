@@ -57,19 +57,50 @@ package survivor {
         SLEEP_DEPRIVATION
     }
 
+    enum GenderType {
+        MALE
+        FEMALE
+    }
+
+    enum RelationshipType {
+        FRIEND
+        ENEMY
+        FAMILY
+        ROMANCE
+    }
+
+    enum OccupationType {
+        UNEMPLOYED
+        DOCTOR
+        POLICE_OFFICER
+        SOLDIER
+        ENGINEER
+        FARMER
+        ATHLETE
+    }
+
     class Survivor extends BaseState {
         - name: String
         - age: int
+        - occupation: OccupationType
+        - gender: GenderType
         - status: SurvivorStatus
         - skills: SkillsProfile
         - stats: StatsProfile
         - health: HealthProfile
         - group: Group
+        - relationships: Map<UUID, Relationship>
         - inventory: Inventory
         - coordinates: Coordinates
         - infections: List<Infection>
         - wounds: List<Wound>
         - conditions: List<Condition>
+    }
+
+    class Relationship {
+        - id: UUID
+        - type: RelationshipType
+        - survivor: Survivor
     }
 
     class Group extends BaseState {
@@ -126,9 +157,12 @@ package survivor {
         - hunger: int
         - thirst: int
         - stamina: int
+        - energy: int
         - bloodVolume: int
         - pain: int
         - fatigue: int
+        - sanity: int
+        - morale: int
         - bodyParts: List<BodyPartStatus>
     }
 

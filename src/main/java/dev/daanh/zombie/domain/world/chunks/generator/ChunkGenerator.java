@@ -1,5 +1,6 @@
 package dev.daanh.zombie.domain.world.chunks.generator;
 
+import dev.daanh.zombie.domain.world.World;
 import dev.daanh.zombie.domain.world.chunks.Chunk;
 import dev.daanh.zombie.domain.world.chunks.ChunkCoordinates;
 import dev.daanh.zombie.domain.world.enums.ChunkState;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 public class ChunkGenerator {
     public static final int GENERATOR_VERSION = 1;
 
-    public Chunk generate(int x, int z) {
+    public Chunk generate(int x, int z, World world) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start("Chunk generation");
 
@@ -24,6 +25,7 @@ public class ChunkGenerator {
         stopWatch.stop();
 
         Chunk chunk = new Chunk(ChunkState.ACTIVE, coordinates, null, LocalDateTime.now(), GENERATOR_VERSION, stopWatch.getTotalTimeMillis());
+        chunk.setWorld(world);
 
         log.info("Chunk generation completed in {} ms", stopWatch.getTotalTimeMillis());
         return chunk;
