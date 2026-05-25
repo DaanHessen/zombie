@@ -44,11 +44,9 @@ class PoiHandler(osmium.SimpleHandler):
                 if len(nodes) < 3:
                     return
                 
-                # Calculate center point
                 lat = sum([n.lat for n in nodes]) / len(nodes)
                 lon = sum([n.lon for n in nodes]) / len(nodes)
                 
-                # Calculate exact physical area using Shoelace formula converted to square meters
                 area = 0.0
                 for i in range(len(nodes)):
                     j = (i + 1) % len(nodes)
@@ -57,10 +55,8 @@ class PoiHandler(osmium.SimpleHandler):
                     area += (n1.lon * n2.lat) - (n2.lon * n1.lat)
                 
                 lat_rad = math.radians(nodes[0].lat)
-                # 1 degree lat = 111320 meters, 1 degree lon = 111320 * cos(lat) meters
                 sqm = abs(area / 2.0) * 111320.0 * (111320.0 * math.cos(lat_rad))
                 
-                # Write to CSV with the new area column
                 self.writer.writerow([lat, lon, name, category, round(sqm, 2)])
                 self.count += 1
             except Exception:
@@ -85,22 +81,22 @@ def download_file(url, filename):
                             f.write(chunk)
                             downloaded += len(chunk)
                             if downloaded % (1024*1024*500) < (8192*10):  # Log every 500 MB
-                                print(f"Downloaded {{downloaded / 1024 / 1024 / 1024:.2f}} GB / {{total_size / 1024 / 1024 / 1024:.2f}} GB")
-            print(f"Download complete: {{filename}}")
+                                print(f"Downloaded {downloaded / 1024 / 1024 / 1024:.2f} GB / {total_size / 1024 / 1024 / 1024:.2f} GB")
+            print(f"Download complete: {filename}")
             return
         except Exception as e:
-            print(f"Download interrupted: {{e}}")
-            print(f"Retrying in 5 minutes (Attempt {{attempt+1}}/{{max_retries}})...")
+            print(f"Download interrupted: {e}")
+            print(f"Retrying in 5 minutes (Attempt {attempt+1}/{max_retries})...")
             time.sleep(300)
-    raise Exception(f"Failed to download {https://download.geofabrik.de/antarctica-latest.osm.pbf} after {{max_retries}} attempts.")
+    raise Exception(f"Failed to download https://download.geofabrik.de/antarctica-latest.osm.pbf after {max_retries} attempts.")
 
 def process():
     if not os.path.exists(PBF_FILE):
         download_file(PBF_URL, PBF_FILE)
     else:
-        print(f"Found {{PBF_FILE}} locally, skipping download.")
+        print(f"Found {PBF_FILE} locally, skipping download.")
     
-    print(f"Extracting POIs (Nodes & Building Polygons) from {{PBF_FILE}}...")
+    print(f"Extracting POIs (Nodes & Building Polygons) from {PBF_FILE}...")
     print("Using NVMe disk index for node locations to prevent 8GB RAM crash!")
     
     with open(CSV_FILE, 'w', encoding='utf-8', newline='') as f:
@@ -110,7 +106,7 @@ def process():
         
         handler.apply_file(PBF_FILE, locations=True, idx='sparse_file_array,nodes_antarctica.bin')
         
-        print(f"Extracted {{handler.count}} POIs to {{CSV_FILE}}")
+        print(f"Extracted {handler.count} POIs to {CSV_FILE}")
         
     print("Cleaning up massive PBF and index files to save NVMe space...")
     if os.path.exists(PBF_FILE):
