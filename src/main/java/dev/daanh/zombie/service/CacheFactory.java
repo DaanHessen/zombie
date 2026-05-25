@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
-public class CacheService {
+public class CacheFactory {
     private final Map<String, Cache<?, ?>> activeCaches = new ConcurrentHashMap<>();
 
     @SuppressWarnings("unchecked")

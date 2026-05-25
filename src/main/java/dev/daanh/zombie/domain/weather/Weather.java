@@ -1,5 +1,6 @@
 package dev.daanh.zombie.domain.weather;
 
+import dev.daanh.zombie.domain.core.BaseState;
 import dev.daanh.zombie.domain.core.GameTime;
 import dev.daanh.zombie.domain.world.Region;
 import dev.daanh.zombie.domain.world.Settlement;
@@ -19,12 +20,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Weather {
-    @Id
-    @Setter(AccessLevel.NONE)
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-
+public class Weather extends BaseState {
     @Embedded
     @AttributeOverride(name = "ticks", column = @Column(name = "updated_at_tick"))
     private GameTime updatedAt = new GameTime();

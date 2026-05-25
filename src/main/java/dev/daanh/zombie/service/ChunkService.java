@@ -10,7 +10,6 @@ import dev.daanh.zombie.domain.world.chunks.generator.ChunkGenerator;
 import dev.daanh.zombie.domain.world.enums.ChunkState;
 import dev.daanh.zombie.repository.ChunkRepository;
 import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -26,19 +25,19 @@ import java.util.stream.Collectors;
 public class ChunkService {
     private final ChunkGenerator chunkGenerator;
     private final ChunkRepository chunkRepository;
-    private final CacheService cacheService;
+    private final CacheFactory cache;
     private final GameConfig config;
 
     public record ChunkKey(UUID worldId, ChunkCoordinates coordinates) {}
     private final Cache<ChunkKey, Chunk> chunkCache;
 
-    public ChunkService(ChunkGenerator generator, ChunkRepository chunkRepository, CacheService cacheService, GameConfig config) {
+    public ChunkService(ChunkGenerator generator, ChunkRepository chunkRepository, CacheFactory cache, GameConfig config) {
         this.chunkGenerator = generator;
         this.chunkRepository = chunkRepository;
         this.config = config;
-        this.cacheService = cacheService;
+        this.cache = cache;
 
-        this.chunkCache = cacheService.getOrCreateCache(
+        this.chunkCache = cache.getOrCreateCache(
                 "chunks",
                 config.getWorld().getChunk().getMaximumChunkCacheSize()
         );
