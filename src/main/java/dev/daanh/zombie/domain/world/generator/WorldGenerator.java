@@ -21,7 +21,7 @@ public class WorldGenerator {
         seedTable(conn, "continent", "id, name, code", "/data/continents.csv.gz");
         seedTable(conn, "country", "id, name, code, capital, population, square_kilometers, continent_id", "/data/countries.csv.gz");
         seedTable(conn, "region", "id, name, code, country_id", "/data/regions.csv.gz");
-        seedTable(conn, "settlement", "id, geoname_id, name, latitude, longitude, population, timezone, biome, region_id, language", "/data/settlements.csv.gz");
+        seedTable(conn, "settlement", "id, geoname_id, name, latitude, longitude, population, timezone, biome, region_id, language, is_ground_zero", "/data/settlements.csv.gz");
         seedTable(conn, "water_body", "id, name, type", "/data/oceans_seas.csv.gz");
 //        seedTable(conn, "road_nodes", "id, latitude, longitude, settlement_id", "/data/road_nodes.csv.gz");
 //        seedTable(conn, "road_segments", "id, name, start_node_id, end_node_id, type, blocked, settlement_id", "/data/road_segments.csv.gz");

@@ -1,5 +1,6 @@
 package dev.daanh.zombie.service;
 
+import com.github.benmanes.caffeine.cache.Cache;
 import dev.daanh.zombie.config.GameConfig;
 import dev.daanh.zombie.domain.world.Coordinates;
 import dev.daanh.zombie.domain.world.World;
@@ -16,16 +17,32 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
 @Slf4j
 @Transactional
 public class ChunkService {
     private final ChunkGenerator chunkGenerator;
     private final ChunkRepository chunkRepository;
+    private final CacheService cacheService;
     private final GameConfig config;
+
+    public record ChunkKey(UUID worldId, ChunkCoordinates coordinates) {}
+    private final Cache<ChunkKey, Chunk> chunkCache;
+
+    public ChunkService(ChunkGenerator generator, ChunkRepository chunkRepository, CacheService cacheService, GameConfig config) {
+        this.chunkGenerator = generator;
+        this.chunkRepository = chunkRepository;
+        this.config = config;
+        this.cacheService = cacheService;
+
+        this.chunkCache = cacheService.getOrCreateCache(
+                "chunks",
+                config.getWorld().getChunk().getMaximumChunkCacheSize()
+        );
+    }
 
     public List<Chunk> getChunks(Coordinates coordinates, World world) {
         List<Chunk> activeGrid = new ArrayList<>();
@@ -33,7 +50,7 @@ public class ChunkService {
         double latitude = coordinates.getLatitude();
         double longitude = coordinates.getLongitude();
 
-        int radius = config.getChunk().getChunkGenerationRadius();
+        int radius = config.getWorld().getChunk().getChunkGenerationRadius();
         double size = config.getWorld().getChunkSizeKm();
 
         ChunkCoordinates center = ChunkCoordinates.gpsToChunk(latitude, longitude, size);
@@ -54,12 +71,16 @@ public class ChunkService {
 
                 ChunkCoordinates chunkCoordinates = new ChunkCoordinates(x, z);
 
-                Chunk chunk = cachedChunksMap.get(chunkCoordinates);
+                ChunkKey key = new ChunkKey(world.getId(), chunkCoordinates);
+                Chunk chunk = chunkCache.getIfPresent(key);
+
+                chunk = cachedChunksMap.getOrDefault(chunkCoordinates, chunk);
 
                 if (chunk == null) {
                     chunk = chunkGenerator.generate(x, z, world);
                     chunkRepository.save(chunk);
                 }
+                chunkCache.put(key, chunk);
                 chunk.setState(ChunkState.ACTIVE);
                 activeGrid.add(chunk);
             }

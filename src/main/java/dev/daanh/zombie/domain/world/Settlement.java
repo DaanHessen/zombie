@@ -41,4 +41,7 @@ public class Settlement {
 
     @Column(name = "population")
     private int preApocalypsePopulation;
+
+    @Column(name = "is_ground_zero")
+    private boolean isGroundZero;
 }
