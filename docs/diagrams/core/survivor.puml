@@ -88,6 +88,7 @@ package survivor {
         - skills: SkillsProfile
         - stats: StatsProfile
         - health: HealthProfile
+        - knowledge: KnowledgeProfile
         - group: Group
         - relationships: Map<UUID, Relationship>
         - inventory: Inventory
@@ -136,6 +137,12 @@ package survivor {
         - duration: int
         - curable: boolean
         - survivor: Survivor
+    }
+
+    class KnowledgeProfile <<embeddable>> {
+        - knownSettlements: Set<UUID>
+        - knownSurvivors: Set<UUID>
+        - discoveredLore: List<String>
     }
 
     class SkillsProfile <<embeddable>> {
@@ -192,5 +199,6 @@ package survivor {
     Survivor *-- SkillsProfile
     Survivor *-- StatsProfile
     Survivor *-- HealthProfile
+    Survivor *-- KnowledgeProfile
 }
 @enduml
