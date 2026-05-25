@@ -15,5 +15,7 @@ public enum LocationCategory {
     NATURAL,
     INFRASTRUCTURE,
     SURVIVAL,
+    INTERACTIVE,
+    RESOURCE,
     UNKNOWN
 }

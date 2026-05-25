@@ -4,6 +4,7 @@ import csv
 import sys
 import gc
 import time
+import math
 
 try:
     import osmium
@@ -31,16 +32,36 @@ class PoiHandler(osmium.SimpleHandler):
     def node(self, n):
         name, category = self.check_tags(n.tags)
         if category:
-            self.writer.writerow([n.location.lat, n.location.lon, name, category])
+            # Single node has 0 area
+            self.writer.writerow([n.location.lat, n.location.lon, name, category, 0.0])
             self.count += 1
 
     def way(self, w):
         name, category = self.check_tags(w.tags)
         if category:
             try:
-                lat = sum([n.lat for n in w.nodes]) / len(w.nodes)
-                lon = sum([n.lon for n in w.nodes]) / len(w.nodes)
-                self.writer.writerow([lat, lon, name, category])
+                nodes = list(w.nodes)
+                if len(nodes) < 3:
+                    return
+                
+                # Calculate center point
+                lat = sum([n.lat for n in nodes]) / len(nodes)
+                lon = sum([n.lon for n in nodes]) / len(nodes)
+                
+                # Calculate exact physical area using Shoelace formula converted to square meters
+                area = 0.0
+                for i in range(len(nodes)):
+                    j = (i + 1) % len(nodes)
+                    n1 = nodes[i]
+                    n2 = nodes[j]
+                    area += (n1.lon * n2.lat) - (n2.lon * n1.lat)
+                
+                lat_rad = math.radians(nodes[0].lat)
+                # 1 degree lat = 111320 meters, 1 degree lon = 111320 * cos(lat) meters
+                sqm = abs(area / 2.0) * 111320.0 * (111320.0 * math.cos(lat_rad))
+                
+                # Write to CSV with the new area column
+                self.writer.writerow([lat, lon, name, category, round(sqm, 2)])
                 self.count += 1
             except Exception:
                 pass
@@ -84,7 +105,7 @@ def process():
     
     with open(CSV_FILE, 'w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(['lat', 'lon', 'name', 'category'])
+        writer.writerow(['lat', 'lon', 'name', 'category', 'area_sqm'])
         handler = PoiHandler(writer)
         
         handler.apply_file(PBF_FILE, locations=True, idx='sparse_file_array,nodes_north_america.bin')

@@ -57,5 +57,26 @@ public enum LocationType {
     SAFEHOUSE,
     SHELTER,
     RUINS,
+
+    BENCH,
+    WASTE_BASKET,
+    WASTE_DISPOSAL,
+    PLAYGROUND,
+    RECYCLING,
+    FIRE_HYDRANT,
+    POST_BOX,
+    HAIRDRESSER,
+    CAFE,
+    PUB,
+    BAKERY,
+    CAR_REPAIR,
+    DRINKING_WATER,
+    TOILETS,
+    VENDING_MACHINE,
+    DEFIBRILLATOR,
+    ATM,
+    PITCH,
+    FAST_FOOD,
+
     UNKNOWN
 }
