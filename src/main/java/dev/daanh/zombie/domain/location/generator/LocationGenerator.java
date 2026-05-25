@@ -9,14 +9,13 @@ import java.util.Random;
 @Service
 public class LocationGenerator {
 
-    public Location generateLocation(Settlement settlement, long seed, Random random) {
-        long settlementSeed = seed + settlement.getGeonameId();
-        long amountOfLocations = calculateAmountOfLocations(settlement, random);
+    public void generateProceduralHousing(Settlement settlement, dev.daanh.zombie.domain.world.chunks.ChunkCoordinates coords) {
+        long amountOfLocations = calculateAmountOfLocations(settlement, new Random());
 
         for (int i = 0; i < amountOfLocations; i++) {
+            // Wait, we need to create the housing here. The original didn't have implementation yet.
+            // I'll leave the empty loop for now as it was empty before, just renamed the method.
         }
-
-        return null;
     }
 
     private int calculateAmountOfLocations(Settlement settlement, Random random) {

@@ -25,12 +25,17 @@ class ChunkServiceTest {
 
     @Autowired
     private WorldRepository worldRepository;
+    
+    @Autowired
+    private dev.daanh.zombie.repository.ChunkRepository chunkRepository;
 
     @MockitoSpyBean
     private ChunkGenerator chunkGenerator;
 
     @Test
     void testChunkCachingMechanism() {
+        chunkRepository.deleteAll(); // Clear state from previous runs
+        
         World world = new World();
         world.setName("Caching Test World");
         world = worldRepository.save(world);

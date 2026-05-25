@@ -2,6 +2,7 @@ package dev.daanh.zombie.service;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import dev.daanh.zombie.config.GameConfig;
+import dev.daanh.zombie.domain.location.generator.LocationGenerator;
 import dev.daanh.zombie.domain.world.Coordinates;
 import dev.daanh.zombie.domain.world.World;
 import dev.daanh.zombie.domain.world.chunks.Chunk;
@@ -25,17 +26,26 @@ import java.util.stream.Collectors;
 public class ChunkService {
     private final ChunkGenerator chunkGenerator;
     private final ChunkRepository chunkRepository;
-    private final CacheFactory cache;
     private final GameConfig config;
+    private final OsmLocationService osmLocationSeeder;
+    private final LocationGenerator locationGenerator;
 
     public record ChunkKey(UUID worldId, ChunkCoordinates coordinates) {}
     private final Cache<ChunkKey, Chunk> chunkCache;
 
-    public ChunkService(ChunkGenerator generator, ChunkRepository chunkRepository, CacheFactory cache, GameConfig config) {
+    public ChunkService(
+            ChunkGenerator generator, 
+            ChunkRepository chunkRepository, 
+            CacheFactory cache, 
+            GameConfig config,
+            OsmLocationService osmLocationSeeder,
+            LocationGenerator locationGenerator
+    ) {
         this.chunkGenerator = generator;
         this.chunkRepository = chunkRepository;
         this.config = config;
-        this.cache = cache;
+        this.osmLocationSeeder = osmLocationSeeder;
+        this.locationGenerator = locationGenerator;
 
         this.chunkCache = cache.getOrCreateCache(
                 "chunks",
@@ -78,6 +88,11 @@ public class ChunkService {
                 if (chunk == null) {
                     chunk = chunkGenerator.generate(x, z, world);
                     chunkRepository.save(chunk);
+                    
+                    if (chunk.getSettlement() != null) {
+                        osmLocationSeeder.seedPoisForChunk(chunkCoordinates, config.getWorld().getChunkSizeKm(), chunk.getSettlement());
+                        locationGenerator.generateProceduralHousing(chunk.getSettlement(), chunkCoordinates);
+                    }
                 }
                 chunkCache.put(key, chunk);
                 chunk.setState(ChunkState.ACTIVE);

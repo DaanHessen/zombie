@@ -14,8 +14,4 @@ public class Coordinates {
     private Double latitude;
 
     private Double longitude;
-
-//    private int elevation;
-
-
 }
