@@ -4,12 +4,14 @@ import com.github.benmanes.caffeine.cache.Cache;
 import dev.daanh.zombie.config.GameConfig;
 import dev.daanh.zombie.domain.location.generator.LocationGenerator;
 import dev.daanh.zombie.domain.world.Coordinates;
+import dev.daanh.zombie.domain.world.Settlement;
 import dev.daanh.zombie.domain.world.World;
 import dev.daanh.zombie.domain.world.chunks.Chunk;
 import dev.daanh.zombie.domain.world.chunks.ChunkCoordinates;
 import dev.daanh.zombie.domain.world.chunks.generator.ChunkGenerator;
 import dev.daanh.zombie.domain.world.enums.ChunkState;
 import dev.daanh.zombie.repository.ChunkRepository;
+import dev.daanh.zombie.repository.SettlementRepository;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -29,6 +31,7 @@ public class ChunkService {
     private final GameConfig config;
     private final OsmLocationService osmLocationSeeder;
     private final LocationGenerator locationGenerator;
+    private final SettlementRepository settlementRepository;
 
     public record ChunkKey(UUID worldId, ChunkCoordinates coordinates) {}
     private final Cache<ChunkKey, Chunk> chunkCache;
@@ -39,13 +42,15 @@ public class ChunkService {
             CacheFactory cache, 
             GameConfig config,
             OsmLocationService osmLocationSeeder,
-            LocationGenerator locationGenerator
+            LocationGenerator locationGenerator,
+            SettlementRepository settlementRepository
     ) {
         this.chunkGenerator = generator;
         this.chunkRepository = chunkRepository;
         this.config = config;
         this.osmLocationSeeder = osmLocationSeeder;
         this.locationGenerator = locationGenerator;
+        this.settlementRepository = settlementRepository;
 
         this.chunkCache = cache.getOrCreateCache(
                 "chunks",
@@ -89,9 +94,14 @@ public class ChunkService {
                     chunk = chunkGenerator.generate(x, z, world);
                     chunkRepository.save(chunk);
                     
-                    if (chunk.getSettlement() != null) {
-                        osmLocationSeeder.seedPoisForChunk(chunkCoordinates, config.getWorld().getChunkSizeKm(), chunk.getSettlement());
-                        locationGenerator.generateProceduralHousing(chunk.getSettlement(), chunkCoordinates);
+                    Settlement settlement = chunk.getSettlement();
+                    if (settlement != null) {
+                        if (!Boolean.TRUE.equals(settlement.getIsPoisSeeded())) {
+                            osmLocationSeeder.seedPoisForSettlement(settlement);
+                            settlement.setIsPoisSeeded(true);
+                            settlementRepository.save(settlement);
+                        }
+//                        locationGenerator.generateProceduralHousing(settlement, chunkCoordinates);
                     }
                 }
                 chunkCache.put(key, chunk);

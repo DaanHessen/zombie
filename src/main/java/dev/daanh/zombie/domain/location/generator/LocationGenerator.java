@@ -1,6 +1,8 @@
 package dev.daanh.zombie.domain.location.generator;
 
 import dev.daanh.zombie.domain.location.Location;
+import dev.daanh.zombie.domain.location.enums.LocationCategory;
+import dev.daanh.zombie.domain.location.enums.LocationSize;
 import dev.daanh.zombie.domain.world.Settlement;
 import org.springframework.stereotype.Service;
 
@@ -8,16 +10,6 @@ import java.util.Random;
 
 @Service
 public class LocationGenerator {
-
-    public void generateProceduralHousing(Settlement settlement, dev.daanh.zombie.domain.world.chunks.ChunkCoordinates coords) {
-        long amountOfLocations = calculateAmountOfLocations(settlement, new Random());
-
-        for (int i = 0; i < amountOfLocations; i++) {
-            // Wait, we need to create the housing here. The original didn't have implementation yet.
-            // I'll leave the empty loop for now as it was empty before, just renamed the method.
-        }
-    }
-
     private int calculateAmountOfLocations(Settlement settlement, Random random) {
         int population = settlement.getPreApocalypsePopulation();
         int amount;
