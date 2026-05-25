@@ -15,12 +15,38 @@ except ImportError:
 PBF_URL = "https://download.geofabrik.de/antarctica-latest.osm.pbf"
 PBF_FILE = "antarctica-latest.osm.pbf"
 CSV_FILE = "antarctica.csv"
+CONTINENT = "Antarctica"
+SPINNER = ["|", "/", "-", "\\"]
+
+def progress_bar(current, total, prefix="", bar_len=40):
+    if total == 0:
+        return
+    pct = current / total
+    filled = int(bar_len * pct)
+    bar = "#" * filled + "-" * (bar_len - filled)
+    cur_mb = current / 1024 / 1024
+    tot_mb = total / 1024 / 1024
+    if tot_mb >= 1024:
+        size_str = f"{cur_mb/1024:.2f}/{tot_mb/1024:.2f} GB"
+    else:
+        size_str = f"{cur_mb:.1f}/{tot_mb:.1f} MB"
+    sys.stdout.write(f"\r  {prefix} [{bar}] {pct*100:5.1f}% {size_str}  ")
+    sys.stdout.flush()
 
 class PoiHandler(osmium.SimpleHandler):
     def __init__(self, writer):
         osmium.SimpleHandler.__init__(self)
         self.writer = writer
         self.count = 0
+        self.last_print = 0
+
+    def _print_progress(self):
+        now = time.time()
+        if now - self.last_print > 0.3:
+            spin = SPINNER[self.count % len(SPINNER)]
+            sys.stdout.write(f"\r  Extracting {CONTINENT}... {spin} {self.count:,} POIs found  ")
+            sys.stdout.flush()
+            self.last_print = now
 
     def check_tags(self, tags):
         if 'amenity' in tags or 'shop' in tags or 'tourism' in tags or 'emergency' in tags or 'leisure' in tags:
@@ -32,9 +58,9 @@ class PoiHandler(osmium.SimpleHandler):
     def node(self, n):
         name, category = self.check_tags(n.tags)
         if category:
-            # Single node has 0 area
             self.writer.writerow([n.location.lat, n.location.lon, name, category, 0.0])
             self.count += 1
+            self._print_progress()
 
     def way(self, w):
         name, category = self.check_tags(w.tags)
@@ -59,17 +85,17 @@ class PoiHandler(osmium.SimpleHandler):
                 
                 self.writer.writerow([lat, lon, name, category, round(sqm, 2)])
                 self.count += 1
+                self._print_progress()
             except Exception:
                 pass
 
 def download_file(url, filename):
-    print(f"Downloading https://download.geofabrik.de/antarctica-latest.osm.pbf...")
     max_retries = 150
     for attempt in range(max_retries):
         try:
             with requests.get(url, stream=True, timeout=60) as r:
                 if r.status_code == 429:
-                    print("Rate limit hit (HTTP 429). Sleeping for 15 minutes...")
+                    print("\n  [!] Rate limited. Sleeping 15 min...")
                     time.sleep(900)
                     continue
                 r.raise_for_status()
@@ -80,24 +106,20 @@ def download_file(url, filename):
                         if chunk:
                             f.write(chunk)
                             downloaded += len(chunk)
-                            if downloaded % (1024*1024*500) < (8192*10):  # Log every 500 MB
-                                print(f"Downloaded {downloaded / 1024 / 1024 / 1024:.2f} GB / {total_size / 1024 / 1024 / 1024:.2f} GB")
-            print(f"Download complete: {filename}")
+                            progress_bar(downloaded, total_size, prefix="Downloading")
+            print(f"\n  [OK] Download complete: {filename}")
             return
         except Exception as e:
-            print(f"Download interrupted: {e}")
-            print(f"Retrying in 5 minutes (Attempt {attempt+1}/{max_retries})...")
+            print(f"\n  [!!] Download error: {e}")
+            print(f"       Retrying in 5 min ({attempt+1}/{max_retries})...")
             time.sleep(300)
-    raise Exception(f"Failed to download https://download.geofabrik.de/antarctica-latest.osm.pbf after {max_retries} attempts.")
+    raise Exception(f"Failed to download after {max_retries} attempts.")
 
 def process():
     if not os.path.exists(PBF_FILE):
         download_file(PBF_URL, PBF_FILE)
     else:
-        print(f"Found {PBF_FILE} locally, skipping download.")
-    
-    print(f"Extracting POIs (Nodes & Building Polygons) from {PBF_FILE}...")
-    print("Using NVMe disk index for node locations to prevent 8GB RAM crash!")
+        print(f"  [OK] Found {PBF_FILE} locally, skipping download.")
     
     with open(CSV_FILE, 'w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
@@ -106,9 +128,8 @@ def process():
         
         handler.apply_file(PBF_FILE, locations=True, idx='sparse_file_array,nodes_antarctica.bin')
         
-        print(f"Extracted {handler.count} POIs to {CSV_FILE}")
+        print(f"\n  [OK] Extracted {handler.count:,} POIs -> {CSV_FILE}")
         
-    print("Cleaning up massive PBF and index files to save NVMe space...")
     if os.path.exists(PBF_FILE):
         os.remove(PBF_FILE)
     if os.path.exists('nodes_antarctica.bin'):
