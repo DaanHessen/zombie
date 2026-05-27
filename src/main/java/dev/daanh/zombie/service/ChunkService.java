@@ -2,9 +2,7 @@ package dev.daanh.zombie.service;
 
 import com.github.benmanes.caffeine.cache.Cache;
 import dev.daanh.zombie.config.GameConfig;
-import dev.daanh.zombie.domain.location.generator.LocationGenerator;
 import dev.daanh.zombie.domain.world.Coordinates;
-import dev.daanh.zombie.domain.world.Settlement;
 import dev.daanh.zombie.domain.world.World;
 import dev.daanh.zombie.domain.world.chunks.Chunk;
 import dev.daanh.zombie.domain.world.chunks.ChunkCoordinates;
@@ -29,28 +27,19 @@ public class ChunkService {
     private final ChunkGenerator chunkGenerator;
     private final ChunkRepository chunkRepository;
     private final GameConfig config;
-    private final OsmLocationService osmLocationSeeder;
-    private final LocationGenerator locationGenerator;
-    private final SettlementRepository settlementRepository;
-
     public record ChunkKey(UUID worldId, ChunkCoordinates coordinates) {}
     private final Cache<ChunkKey, Chunk> chunkCache;
 
     public ChunkService(
-            ChunkGenerator generator, 
-            ChunkRepository chunkRepository, 
-            CacheFactory cache, 
+            ChunkGenerator generator,
+            ChunkRepository chunkRepository,
+            CacheFactory cache,
             GameConfig config,
-            OsmLocationService osmLocationSeeder,
-            LocationGenerator locationGenerator,
             SettlementRepository settlementRepository
     ) {
         this.chunkGenerator = generator;
         this.chunkRepository = chunkRepository;
         this.config = config;
-        this.osmLocationSeeder = osmLocationSeeder;
-        this.locationGenerator = locationGenerator;
-        this.settlementRepository = settlementRepository;
 
         this.chunkCache = cache.getOrCreateCache(
                 "chunks",
@@ -93,17 +82,8 @@ public class ChunkService {
                 if (chunk == null) {
                     chunk = chunkGenerator.generate(x, z, world);
                     chunkRepository.save(chunk);
-                    
-                    Settlement settlement = chunk.getSettlement();
-                    if (settlement != null) {
-                        if (!Boolean.TRUE.equals(settlement.getIsPoisSeeded())) {
-                            osmLocationSeeder.seedPoisForSettlement(settlement);
-                            settlement.setIsPoisSeeded(true);
-                            settlementRepository.save(settlement);
-                        }
-//                        locationGenerator.generateProceduralHousing(settlement, chunkCoordinates);
-                    }
                 }
+
                 chunkCache.put(key, chunk);
                 chunk.setState(ChunkState.ACTIVE);
                 activeGrid.add(chunk);

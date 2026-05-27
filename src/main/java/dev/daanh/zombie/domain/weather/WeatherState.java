@@ -1,6 +1,6 @@
 package dev.daanh.zombie.domain.weather;
 
-import dev.daanh.zombie.domain.core.BaseState;
+import dev.daanh.zombie.domain.core.BaseEntity;
 import dev.daanh.zombie.domain.core.GameTime;
 import dev.daanh.zombie.domain.weather.enums.PrecipitationType;
 import dev.daanh.zombie.domain.weather.enums.WeatherType;
@@ -21,7 +21,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class WeatherState extends BaseState {
+public class WeatherState extends BaseEntity {
     private double precipitationIntensity;
 
     private double humidity;

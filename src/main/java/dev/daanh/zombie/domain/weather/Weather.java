@@ -1,6 +1,6 @@
 package dev.daanh.zombie.domain.weather;
 
-import dev.daanh.zombie.domain.core.BaseState;
+import dev.daanh.zombie.domain.core.BaseEntity;
 import dev.daanh.zombie.domain.core.GameTime;
 import dev.daanh.zombie.domain.world.Region;
 import dev.daanh.zombie.domain.world.Settlement;
@@ -20,18 +20,16 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Weather extends BaseState {
+public class Weather extends BaseEntity {
     @Embedded
     @AttributeOverride(name = "ticks", column = @Column(name = "updated_at_tick"))
-    private GameTime updatedAt = new GameTime();
+    private GameTime updatedAtTick = new GameTime();
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "region_id")
-    private Region region;
+    @Column(name = "region_id")
+    private UUID regionId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "settlement_id")
-    private Settlement settlement;
+    @Column(name = "settlement_id")
+    private UUID settlementId;
 
     @OneToOne(fetch = FetchType.LAZY)
     private WeatherState currentState;

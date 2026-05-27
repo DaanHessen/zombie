@@ -35,7 +35,7 @@ public abstract class Lock {
     private int durability;
 
     @OneToOne(mappedBy = "lock")
-    private AccessProfile accessProfile;
+    protected AccessProfile accessProfile;
 
     public void breakLock(int damageAmount) {
         if (damageAmount <= 0) { return; }
@@ -61,5 +61,11 @@ public abstract class Lock {
         if (this.durability <= 0) { return; }
 
         this.accessProfile.setState(AccessState.CLOSED);
+    }
+
+    public void pickLock() {
+        if (this.pickable && this.durability > 0) {
+            this.accessProfile.setState(AccessState.OPEN);
+        }
     }
 }

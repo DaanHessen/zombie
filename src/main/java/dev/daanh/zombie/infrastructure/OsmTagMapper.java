@@ -19,16 +19,18 @@ public class OsmTagMapper {
         registry.put("doctors", new LocationMetadata(LocationType.CLINIC, LocationCategory.MEDICAL, LocationSize.SMALL));
         registry.put("dentist", new LocationMetadata(LocationType.CLINIC, LocationCategory.MEDICAL, LocationSize.SMALL));
         registry.put("pharmacy", new LocationMetadata(LocationType.PHARMACY, LocationCategory.MEDICAL, LocationSize.SMALL));
+        registry.put("chemist", new LocationMetadata(LocationType.PHARMACY, LocationCategory.MEDICAL, LocationSize.SMALL));
         registry.put("defibrillator", new LocationMetadata(LocationType.DEFIBRILLATOR, LocationCategory.MEDICAL, LocationSize.SMALL));
+        registry.put("veterinary", new LocationMetadata(LocationType.CLINIC, LocationCategory.MEDICAL, LocationSize.SMALL));
         
         // Government/Services
         registry.put("police", new LocationMetadata(LocationType.POLICE_STATION, LocationCategory.GOVERNMENT, LocationSize.MEDIUM));
         registry.put("fire_station", new LocationMetadata(LocationType.FIRE_STATION, LocationCategory.GOVERNMENT, LocationSize.MEDIUM));
         registry.put("fire_hydrant", new LocationMetadata(LocationType.FIRE_HYDRANT, LocationCategory.RESOURCE, LocationSize.SMALL));
         registry.put("townhall", new LocationMetadata(LocationType.TOWN_HALL, LocationCategory.GOVERNMENT, LocationSize.MEDIUM));
-        registry.put("post_box", new LocationMetadata(LocationType.POST_BOX, LocationCategory.INTERACTIVE, LocationSize.SMALL));
+        registry.put("post_office", new LocationMetadata(LocationType.TOWN_HALL, LocationCategory.GOVERNMENT, LocationSize.SMALL));
 
-        // Commercial
+        // Commercial (Food)
         registry.put("supermarket", new LocationMetadata(LocationType.SUPERMARKET, LocationCategory.COMMERCIAL, LocationSize.MEDIUM));
         registry.put("convenience", new LocationMetadata(LocationType.GENERAL_STORE, LocationCategory.COMMERCIAL, LocationSize.SMALL));
         registry.put("restaurant", new LocationMetadata(LocationType.RESTAURANT, LocationCategory.COMMERCIAL, LocationSize.SMALL));
@@ -37,14 +39,21 @@ public class OsmTagMapper {
         registry.put("pub", new LocationMetadata(LocationType.PUB, LocationCategory.COMMERCIAL, LocationSize.SMALL));
         registry.put("bar", new LocationMetadata(LocationType.PUB, LocationCategory.COMMERCIAL, LocationSize.SMALL));
         registry.put("bakery", new LocationMetadata(LocationType.BAKERY, LocationCategory.COMMERCIAL, LocationSize.SMALL));
-        registry.put("hairdresser", new LocationMetadata(LocationType.HAIRDRESSER, LocationCategory.COMMERCIAL, LocationSize.SMALL));
+        registry.put("butcher", new LocationMetadata(LocationType.GENERAL_STORE, LocationCategory.COMMERCIAL, LocationSize.SMALL));
+
+        // Commercial (Other Top Categories)
+        registry.put("hairdresser", new LocationMetadata(LocationType.SPECIALIZED_STORE, LocationCategory.COMMERCIAL, LocationSize.SMALL));
+        registry.put("beauty", new LocationMetadata(LocationType.SPECIALIZED_STORE, LocationCategory.COMMERCIAL, LocationSize.SMALL));
         registry.put("car_repair", new LocationMetadata(LocationType.CAR_REPAIR, LocationCategory.COMMERCIAL, LocationSize.MEDIUM));
         registry.put("fuel", new LocationMetadata(LocationType.GAS_STATION, LocationCategory.COMMERCIAL, LocationSize.MEDIUM));
         registry.put("atm", new LocationMetadata(LocationType.ATM, LocationCategory.INTERACTIVE, LocationSize.SMALL));
-        registry.put("vending_machine", new LocationMetadata(LocationType.VENDING_MACHINE, LocationCategory.INTERACTIVE, LocationSize.SMALL));
-
+        registry.put("doityourself", new LocationMetadata(LocationType.WAREHOUSE, LocationCategory.COMMERCIAL, LocationSize.LARGE));
+        registry.put("furniture", new LocationMetadata(LocationType.WAREHOUSE, LocationCategory.COMMERCIAL, LocationSize.LARGE));
+        registry.put("car_wash", new LocationMetadata(LocationType.SPECIALIZED_REPAIR_SHOP, LocationCategory.COMMERCIAL, LocationSize.MEDIUM));
+        
         // Education
         registry.put("school", new LocationMetadata(LocationType.SCHOOL, LocationCategory.EDUCATION, LocationSize.MEDIUM));
+        registry.put("kindergarten", new LocationMetadata(LocationType.SCHOOL, LocationCategory.EDUCATION, LocationSize.SMALL));
         registry.put("university", new LocationMetadata(LocationType.UNIVERSITY, LocationCategory.EDUCATION, LocationSize.LARGE));
         registry.put("college", new LocationMetadata(LocationType.UNIVERSITY, LocationCategory.EDUCATION, LocationSize.LARGE));
 
@@ -54,11 +63,19 @@ public class OsmTagMapper {
 
         // Parks & Rec
         registry.put("park", new LocationMetadata(LocationType.PARK, LocationCategory.RECREATIONAL, LocationSize.LARGE));
+        registry.put("garden", new LocationMetadata(LocationType.PARK, LocationCategory.RECREATIONAL, LocationSize.MEDIUM));
+        registry.put("nature_reserve", new LocationMetadata(LocationType.PARK, LocationCategory.RECREATIONAL, LocationSize.LARGE));
         registry.put("pitch", new LocationMetadata(LocationType.PITCH, LocationCategory.RECREATIONAL, LocationSize.MEDIUM));
         registry.put("playground", new LocationMetadata(LocationType.PLAYGROUND, LocationCategory.RECREATIONAL, LocationSize.SMALL));
         registry.put("camp_site", new LocationMetadata(LocationType.CAMPSITE, LocationCategory.RECREATIONAL, LocationSize.LARGE));
-        registry.put("bench", new LocationMetadata(LocationType.BENCH, LocationCategory.INTERACTIVE, LocationSize.SMALL));
+        registry.put("sports_centre", new LocationMetadata(LocationType.PITCH, LocationCategory.RECREATIONAL, LocationSize.LARGE));
+        registry.put("swimming_pool", new LocationMetadata(LocationType.PITCH, LocationCategory.RECREATIONAL, LocationSize.MEDIUM));
 
+        // Interactive / Minor Props
+        registry.put("bench", new LocationMetadata(LocationType.BENCH, LocationCategory.INTERACTIVE, LocationSize.SMALL));
+        registry.put("post_box", new LocationMetadata(LocationType.POST_BOX, LocationCategory.INTERACTIVE, LocationSize.SMALL));
+        registry.put("vending_machine", new LocationMetadata(LocationType.VENDING_MACHINE, LocationCategory.INTERACTIVE, LocationSize.SMALL));
+        
         // Resources / Survival
         registry.put("shelter", new LocationMetadata(LocationType.SHELTER, LocationCategory.SURVIVAL, LocationSize.SMALL));
         registry.put("drinking_water", new LocationMetadata(LocationType.DRINKING_WATER, LocationCategory.RESOURCE, LocationSize.SMALL));
@@ -72,7 +89,38 @@ public class OsmTagMapper {
         if (category == null || category.isBlank()) {
             return getDefaultFallback();
         }
-        return registry.getOrDefault(category.toLowerCase(), getDefaultFallback());
+        
+        category = category.toLowerCase();
+
+        // 1. Check explicit registry for exactly mapped items
+        if (registry.containsKey(category)) {
+            return registry.get(category);
+        }
+
+        // 2. Dynamic Keyword Fallbacks for the thousands of crazy OSM tags
+        if (category.contains("repair") || category.contains("mechanic")) {
+            return new LocationMetadata(LocationType.SPECIALIZED_REPAIR_SHOP, LocationCategory.COMMERCIAL, LocationSize.SMALL);
+        }
+        if (category.contains("club") || category.contains("nightclub") || category.contains("hookah")) {
+            return new LocationMetadata(LocationType.ENTERTAINMENT_CLUB, LocationCategory.COMMERCIAL, LocationSize.MEDIUM);
+        }
+        if (category.contains("clothes") || category.contains("shoes") || category.contains("boutique") || category.contains("tailor") || category.contains("jewel")) {
+            return new LocationMetadata(LocationType.CLOTHING_STORE, LocationCategory.COMMERCIAL, LocationSize.SMALL);
+        }
+        if (category.contains("store") || category.contains("shop") || category.contains("market")) {
+            return new LocationMetadata(LocationType.SPECIALIZED_STORE, LocationCategory.COMMERCIAL, LocationSize.SMALL);
+        }
+
+        // 3. Exact Enum Match Check (e.g. if the category is literally "bench" or "hospital")
+        try {
+            LocationType exactType = LocationType.valueOf(category.toUpperCase());
+            // If it matches an enum exactly, we assign a generic category but preserve the exact Type!
+            return new LocationMetadata(exactType, LocationCategory.UNKNOWN, LocationSize.SMALL);
+        } catch (IllegalArgumentException e) {
+            // It's not a direct enum match, ignore and continue to default fallback
+        }
+
+        return getDefaultFallback();
     }
 
     private LocationMetadata getDefaultFallback() {

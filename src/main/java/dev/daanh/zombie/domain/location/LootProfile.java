@@ -1,5 +1,8 @@
 package dev.daanh.zombie.domain.location;
 
+import dev.daanh.zombie.domain.location.enums.AccessState;
+import dev.daanh.zombie.domain.location.enums.LocationSize;
+import dev.daanh.zombie.domain.location.enums.LocationType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -37,5 +40,5 @@ public class LootProfile {
     private double junkChance;
 
     @OneToOne(mappedBy = "lootProfile")
-    private Location location;
+    private LocationState locationState;
 }

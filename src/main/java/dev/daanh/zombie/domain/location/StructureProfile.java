@@ -35,5 +35,5 @@ public class StructureProfile {
     private boolean hasWater;
 
     @OneToOne(mappedBy = "structureProfile")
-    private Location location;
+    private LocationState locationState;
 }

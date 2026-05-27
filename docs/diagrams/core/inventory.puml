@@ -50,10 +50,49 @@ package inventory {
             - maxDurability: int
         }
 
+        class FoodItem extends Item {
+            - calories: int
+            - protein: int
+            - carbs: int
+            - hydration: int
+            - expirationDays: int
+        }
+
+        class WeaponItem extends Item {
+            - damage: double
+            - durabilityLossPerUse: int
+            - jamChance: double
+            - caliber: String
+            - noiseRadius: int
+        }
+
+        class AmmoItem extends Item {
+            - caliber: String
+        }
+
+        class ClothingItem extends Item {
+            - armorRating: double
+            - insulation: double
+            - bonusInventorySlots: int
+        }
+
+        class MedicineItem extends Item {
+            - healthRestored: double
+            - curesInfection: boolean
+        }
+
+        enum FoodSpoilageStage {
+            FRESH
+            STALE
+            ROTTEN
+            MUSH
+        }
+
         class ItemStack {
             - id: UUID
             - item: Item
             - amount: int
+            - spawnTimestamp: long
         }
     }
 

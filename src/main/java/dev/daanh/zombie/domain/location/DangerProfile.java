@@ -35,5 +35,5 @@ public class DangerProfile {
     private double fireRisk;
 
     @OneToOne(mappedBy = "dangerProfile")
-    private Location location;
+    private LocationState locationState;
 }

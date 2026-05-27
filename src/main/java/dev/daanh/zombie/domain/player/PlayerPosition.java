@@ -1,6 +1,6 @@
 package dev.daanh.zombie.domain.player;
 
-import dev.daanh.zombie.domain.core.BaseState;
+import dev.daanh.zombie.domain.core.BaseEntity;
 import dev.daanh.zombie.domain.location.Location;
 import dev.daanh.zombie.domain.world.Coordinates;
 import dev.daanh.zombie.domain.world.Settlement;
@@ -11,16 +11,16 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class PlayerPosition extends BaseState {
+public class PlayerPosition extends BaseEntity {
     @OneToOne(fetch = FetchType.LAZY)
     private Player player;
 
     @Embedded
     private Coordinates coordinates;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Location location;
+    @Column(name = "location_id")
+    private java.util.UUID locationId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Settlement settlement;
+    @Column(name = "settlement_id")
+    private java.util.UUID settlementId;
 }

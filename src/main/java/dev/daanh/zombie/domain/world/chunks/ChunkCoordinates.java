@@ -1,7 +1,7 @@
 package dev.daanh.zombie.domain.world.chunks;
 
 import dev.daanh.zombie.config.GameConfig;
-import dev.daanh.zombie.domain.core.BaseState;
+import dev.daanh.zombie.domain.core.BaseEntity;
 import dev.daanh.zombie.domain.world.Coordinates;
 import jakarta.persistence.Embeddable;
 import lombok.*;

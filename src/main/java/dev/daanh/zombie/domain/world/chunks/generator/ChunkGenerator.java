@@ -46,8 +46,8 @@ public class ChunkGenerator {
 
         stopWatch.stop();
 
-        Chunk chunk = new Chunk(ChunkState.ACTIVE, coordinates, settlement, LocalDateTime.now(), GENERATOR_VERSION, stopWatch.getTotalTimeMillis());
-        chunk.setWorld(world);
+        Chunk chunk = new Chunk(ChunkState.ACTIVE, coordinates, settlement != null ? settlement.getId() : null, LocalDateTime.now(), GENERATOR_VERSION, stopWatch.getTotalTimeMillis());
+        chunk.setWorldId(world.getId());
 
         log.info("Chunk generation completed in {} ms (Found Settlement: {})", stopWatch.getTotalTimeMillis(), settlement != null ? settlement.getName() : "None");
         return chunk;

@@ -20,10 +20,13 @@ public class ChunkController {
     private final ChunkService chunkService;
     private final PlayerService playerService;
 
+    private final dev.daanh.zombie.repository.WorldRepository worldRepository;
+
     @RequestMapping("/chunks")
     public List<ChunkResponse> getChunks(@RequestHeader UUID playerId) {
         PlayerPosition playerPosition = playerService.getPlayerPosition(playerId);
-        List<Chunk> chunks = chunkService.getChunks(playerPosition.getCoordinates(), playerPosition.getWorld());
+        dev.daanh.zombie.domain.world.World world = worldRepository.findById(playerPosition.getWorldId()).orElseThrow();
+        List<Chunk> chunks = chunkService.getChunks(playerPosition.getCoordinates(), world);
         return chunks.stream()
                 .map(chunk -> ChunkResponse.from(chunk, null))
                 .toList();

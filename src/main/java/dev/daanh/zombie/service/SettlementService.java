@@ -26,8 +26,8 @@ public class SettlementService {
 
         for (Settlement settlement : settlements) {
             SettlementState settlementState = new SettlementState();
-                    settlementState.setWorld(world);
-                    settlementState.setSettlement(settlement);
+                    settlementState.setWorldId(world.getId());
+                    settlementState.setSettlementId(settlement.getId());
                     settlementState.setPopulation(settlement.getPreApocalypsePopulation());
             settlementStateRepository.save(settlementState);
         }

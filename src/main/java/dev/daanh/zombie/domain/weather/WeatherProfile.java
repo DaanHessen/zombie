@@ -1,7 +1,5 @@
 package dev.daanh.zombie.domain.weather;
 
-import dev.daanh.zombie.domain.world.enums.BiomeType;
-
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -40,9 +38,6 @@ public class WeatherProfile {
     private double fogChance;
 
     private double windChance;
-
-    @Enumerated(EnumType.STRING)
-    private BiomeType biome;
 
     @Embedded
     @AttributeOverride(name = "celsius", column = @Column(name = "average_temperature"))

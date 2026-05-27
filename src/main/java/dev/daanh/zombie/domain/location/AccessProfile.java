@@ -32,16 +32,28 @@ public class AccessProfile {
     @Enumerated(EnumType.STRING)
     private AccessState state;
 
-    private boolean requiresTool;
+    // keepin it simple here for MVP. YARGNI!!!!!!!!!
+//    private boolean requiresTool;
 
-    private boolean requiresClimbing;
+//    private boolean requiresClimbing;
 
-    private boolean requiresSwimming;
+//    private boolean requiresSwimming;
 
     @OneToOne(mappedBy = "accessProfile")
-    private Location location;
+    private LocationState locationState;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lock_id")
     private Lock lock;
+
+    public boolean isAccessible() {
+        if (this.state == AccessState.BARRICADED ||
+                this.state == AccessState.BLOCKED ||
+                this.state == AccessState.COLLAPSED ||
+                this.state == AccessState.LOCKED) {
+            return false;
+        }
+
+        return true;
+    }
 }

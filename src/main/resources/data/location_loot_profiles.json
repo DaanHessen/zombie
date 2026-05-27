@@ -1,0 +1,85 @@
+{
+  "categories": {
+    "RESIDENTIAL": {
+      "baseLootQuantity": 5,
+      "categoryWeights": {
+        "FOOD": 40,
+        "CLOTHING": 30,
+        "LITERATURE": 10,
+        "TOOL": 10,
+        "MEDICINE": 5,
+        "WEAPON": 5
+      }
+    },
+    "COMMERCIAL": {
+      "baseLootQuantity": 15,
+      "categoryWeights": {
+        "FOOD": 30,
+        "TOOL": 20,
+        "CLOTHING": 20,
+        "RESOURCE": 20,
+        "MEDICINE": 10
+      }
+    },
+    "INDUSTRIAL": {
+      "baseLootQuantity": 20,
+      "categoryWeights": {
+        "RESOURCE": 50,
+        "TOOL": 30,
+        "CONTAINER": 10,
+        "WEAPON": 10
+      }
+    },
+    "MEDICAL": {
+      "baseLootQuantity": 10,
+      "categoryWeights": {
+        "MEDICINE": 80,
+        "LITERATURE": 10,
+        "CLOTHING": 10
+      }
+    },
+    "MILITARY": {
+      "baseLootQuantity": 12,
+      "categoryWeights": {
+        "WEAPON": 40,
+        "AMMO": 40,
+        "CLOTHING": 10,
+        "MEDICINE": 10
+      }
+    },
+    "EDUCATIONAL": {
+      "baseLootQuantity": 15,
+      "categoryWeights": {
+        "LITERATURE": 60,
+        "FOOD": 20,
+        "TOOL": 10,
+        "RESOURCE": 10
+      }
+    },
+    "RECREATIONAL": {
+      "baseLootQuantity": 8,
+      "categoryWeights": {
+        "FOOD": 40,
+        "LITERATURE": 30,
+        "CLOTHING": 20,
+        "TOOL": 10
+      }
+    },
+    "AGRICULTURAL": {
+      "baseLootQuantity": 12,
+      "categoryWeights": {
+        "TOOL": 50,
+        "RESOURCE": 30,
+        "FOOD": 10,
+        "WEAPON": 10
+      }
+    }
+  },
+  "sizeMultipliers": {
+    "TINY": 0.25,
+    "SMALL": 0.5,
+    "MEDIUM": 1.0,
+    "LARGE": 2.5,
+    "MASSIVE": 5.0
+  }
+}

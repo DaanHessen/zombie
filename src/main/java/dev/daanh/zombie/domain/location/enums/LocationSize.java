@@ -1,9 +1,11 @@
 package dev.daanh.zombie.domain.location.enums;
 
 public enum LocationSize {
-    TINY,
+    PROPS,
+    VERY_SMALL,
     SMALL,
     MEDIUM,
     LARGE,
-    HUGE
+    VERY_LARGE,
+    GIANT
 }

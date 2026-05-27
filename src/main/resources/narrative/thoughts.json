@@ -1,0 +1,129 @@
+{
+  "chunk_exploration": {
+    "wilderness": [
+      { "text": "Nothing but wilderness here. Quiet. Too quiet.", "traits": [], "conditions": [] },
+      { "text": "Just trees, grass, and wind. Need to keep moving before the cold sets in.", "traits": [], "conditions": [] },
+      { "text": "A good place to build a new colony. Solid resources.", "traits": ["pragmatic"], "conditions": [] },
+      { "text": "Nature is reclaiming everything. What's the point of fighting it?", "traits": ["depressive"], "conditions": [] },
+      { "text": "I can't feel my legs. Starvation is eating me from the inside.", "traits": [], "conditions": ["starvation"] },
+      { "text": "My joints are freezing. I need shelter immediately.", "traits": [], "conditions": ["hypothermia"] }
+    ],
+    "urban_ground_zero": [
+      { "text": "I'm navigating the ruins of ${settlementName}. Spores drift lazily through the stagnant atmosphere. I have a terrible feeling about this place.", "traits": [], "conditions": [] },
+      { "text": "Ground zero: ${settlementName}. Decimated, infected. Keep my hand on my weapon.", "traits": [], "conditions": [] },
+      { "text": "This place is crawling with infection. High risk, high reward.", "traits": ["pragmatic"], "conditions": [] },
+      { "text": "God, the smell of rot... Vostok is a tomb. I shouldn't be here.", "traits": ["coward"], "conditions": [] },
+      { "text": "If I die here, let it be quick.", "traits": ["depressive"], "conditions": [] }
+    ],
+    "urban": [
+      { "text": "I'm walking through the remnants of ${settlementName}. Before the collapse, this area housed ${population} people. Now, nature is slowly reclaiming the structures.", "traits": [], "conditions": [] },
+      { "text": "Strolling through ${settlementName}. Abandoned cars, empty windows. A tomb of concrete and asphalt.", "traits": [], "conditions": [] },
+      { "text": "Lots of structures to salvage in ${settlementName}. Good potential.", "traits": ["pragmatic"], "conditions": [] },
+      { "text": "Visions of the crowd that once lived in ${settlementName}... makes my chest tight.", "traits": ["social"], "conditions": [] },
+      { "text": "Too many dark alleys. Perfect spot for an ambush.", "traits": ["coward"], "conditions": [] }
+    ]
+  },
+  "item_discovery": {
+    "food_fresh": [
+      { "text": "Found some fresh ${itemName}. Real food! It's a miracle it hasn't spoiled.", "traits": [], "conditions": [] },
+      { "text": "A pack of fresh ${itemName}. This will keep my stamina up.", "traits": [], "conditions": [] },
+      { "text": "Fresh ${itemName}! I'm eating good tonight.", "traits": [], "conditions": [] },
+      { "text": "Fresh ${itemName}. I should share this with the others.", "traits": ["social"], "conditions": [] }
+    ],
+    "food_stale": [
+      { "text": "Some stale ${itemName}. A bit hard, but still edible. Can't afford to be picky.", "traits": [], "conditions": [] },
+      { "text": "This ${itemName} is stale, but it beats starving.", "traits": [], "conditions": [] }
+    ],
+    "food_spoiled": [
+      { "text": "This ${itemName} is spoiled. Might give me stomach cramps, but I might have no choice.", "traits": [], "conditions": [] },
+      { "text": "Spoiled ${itemName}... and my stomach is already empty. This is going to hurt.", "traits": [], "conditions": ["starvation"] }
+    ],
+    "food_rotten": [
+      { "text": "This ${itemName} is rotten. Disgusting. I'll get sick if I eat this.", "traits": [], "conditions": [] },
+      { "text": "Rotten ${itemName}. Completely inedible. Waste of space.", "traits": [], "conditions": [] },
+      { "text": "It's rotten, but... I am so hungry. Maybe just a bite?", "traits": [], "conditions": ["starvation"], "maxMorale": 40 }
+    ],
+    "food_unrecognizable": [
+      { "text": "This ${itemName} is completely unrecognizable. Moldy mush. Trash.", "traits": [], "conditions": [] }
+    ],
+    "weapon": [
+      { "text": "Found a ${itemName}. Good, I need something to defend myself.", "traits": [], "conditions": [] },
+      { "text": "A ${itemName}. This will keep the walkers at a distance.", "traits": [], "conditions": [] },
+      { "text": "Scavenged a ${itemName}. My chances of survival just went up.", "traits": [], "conditions": [] },
+      { "text": "This ${itemName} will do some serious damage.", "traits": ["brave"], "conditions": [] }
+    ],
+    "medicine": [
+      { "text": "Scavenged some ${itemName}. Medical supplies are worth their weight in gold.", "traits": [], "conditions": [] },
+      { "text": "Some ${itemName}. Keep this in my first-aid pack. Might save my life.", "traits": [], "conditions": [] }
+    ],
+    "clothing": [
+      { "text": "Found a ${itemName}. Good for insulation and protection.", "traits": [], "conditions": [] },
+      { "text": "This ${itemName} will keep me warm in the cold nights.", "traits": [], "conditions": [] }
+    ],
+    "generic": [
+      { "text": "Found a ${itemName}. Let's see if I can find a use for this.", "traits": [], "conditions": [] },
+      { "text": "Scavenged ${itemName}. Might be useful for crafting or trading.", "traits": [], "conditions": [] }
+    ]
+  },
+  "weather": {
+    "freezing": [
+      { "text": "It's freezing out here. My breath is turning to ice. Need shelter.", "traits": [], "conditions": [] },
+      { "text": "Bitter cold. Fingers are getting numb. I need a fire.", "traits": [], "conditions": [] },
+      { "text": "Cold is cracking my skin. This hypothermia is going to kill me.", "traits": [], "conditions": ["hypothermia"] }
+    ],
+    "cold": [
+      { "text": "Chilly wind today. Keep my jacket zipped up.", "traits": [], "conditions": [] },
+      { "text": "It's cold. Standard wasteland weather.", "traits": [], "conditions": [] }
+    ],
+    "warm": [
+      { "text": "Nice and warm. A rare calm day in this ruined world.", "traits": [], "conditions": [] },
+      { "text": "The temperature is comfortable. Ideal for scavenging.", "traits": [], "conditions": [] }
+    ],
+    "hot": [
+      { "text": "Sweltering heat. I'm sweating through my clothes. Need water.", "traits": [], "conditions": [] },
+      { "text": "Too hot out here. The sun is beating down on me.", "traits": [], "conditions": [] }
+    ],
+    "rain": [
+      { "text": "Rain is picking up. Damp clothes make you cold fast. Need cover.", "traits": [], "conditions": [] },
+      { "text": "Drizzling. Everything is slick and mud is forming.", "traits": [], "conditions": [] }
+    ],
+    "snow": [
+      { "text": "Snow is falling. Covers the tracks, but freezes the bones.", "traits": [], "conditions": [] },
+      { "text": "Winter is here. The snow makes everything silent, and deadly.", "traits": [], "conditions": [] }
+    ]
+  },
+  "time": {
+    "morning": [
+      { "text": "Sunrise. I made it through another night.", "traits": [], "conditions": [] },
+      { "text": "Morning light. Time to pack up and start scavenging.", "traits": [], "conditions": [] }
+    ],
+    "day": [
+      { "text": "Broad daylight. Keep my head down. Easier to spot danger now.", "traits": [], "conditions": [] },
+      { "text": "Midday. Need to watch my water supply.", "traits": [], "conditions": [] }
+    ],
+    "evening": [
+      { "text": "Sun is setting. Light is fading. Need to find a place to hole up.", "traits": [], "conditions": [] },
+      { "text": "Dusk. The shadows are getting longer. The dead will be active soon.", "traits": [], "conditions": [] }
+    ],
+    "night": [
+      { "text": "Pitch black. I can hear things moving in the dark. Keep quiet.", "traits": [], "conditions": [] },
+      { "text": "Night. Cold and terrifying. Praying I wake up tomorrow.", "traits": [], "conditions": [] },
+      { "text": "Darkness... a comfortable blanket. Stealth is easier now.", "traits": ["stealth"], "conditions": [] }
+    ]
+  },
+  "narrator_events": {
+    "survivor_death": [
+      "Simulation Event: connection with survivor ${survivorName} lost. Cause: ${cause}.",
+      "${survivorName} has ceased vitals. A quiet death in a loud world. Continuing manager sequence.",
+      "The board reports: ${survivorName} did not survive ${cause}."
+    ],
+    "settlement_collapse": [
+      "Simulation Update: settlement ${settlementName} population collapsed. Lost ${populationLoss} survivors.",
+      "${settlementName} overrun. The remaining settlement statistics have been updated."
+    ],
+    "meta_threat": [
+      "Alert: Hostile movement detected in sector ${sectorId}. Survivors are currently unaware.",
+      "Warning: Ambush potential high near coordinates [${x}, ${z}]."
+    ]
+  }
+}

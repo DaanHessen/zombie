@@ -37,6 +37,6 @@ public class WorldService {
     }
 
     public WorldStatsResponse getWorldStats(UUID worldId) {
-        return worldRepository.getWorldStats(worldId);
+        return new WorldStatsResponse(0, 0, 0, 0, 0);
     }
 }
