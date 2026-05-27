@@ -1,6 +1,5 @@
 package dev.daanh.zombie.service;
 
-import dev.daanh.zombie.application.dto.response.WorldStatsResponse;
 import dev.daanh.zombie.domain.world.World;
 import dev.daanh.zombie.repository.WorldRepository;
 
@@ -34,9 +33,5 @@ public class WorldService {
         log.info("World generation completed in {} ms", stopWatch.getTotalTimeMillis());
 
         return world;
-    }
-
-    public WorldStatsResponse getWorldStats(UUID worldId) {
-        return new WorldStatsResponse(0, 0, 0, 0, 0);
     }
 }

@@ -19,7 +19,7 @@ public class Inventory {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "inventory_id")
-    private List<ItemStack> items;
+    private List<ItemStack> items = new ArrayList<>();
 
     public void addItem(ItemTemplate template, ItemStack stack) {
         if (template == null || stack == null) { return; }

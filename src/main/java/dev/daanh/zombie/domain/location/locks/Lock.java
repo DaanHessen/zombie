@@ -68,4 +68,8 @@ public abstract class Lock {
             this.accessProfile.setState(AccessState.OPEN);
         }
     }
+
+    public boolean isAccessible() {
+        return this.accessProfile.isAccessible();
+    }
 }

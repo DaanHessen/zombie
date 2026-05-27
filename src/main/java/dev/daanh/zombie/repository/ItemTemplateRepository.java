@@ -24,7 +24,7 @@ import java.util.UUID;
 @Repository
 public class ItemTemplateRepository {
 
-    private static final String SQLITE_URL = "jdbc:sqlite:src/main/resources/data/sqlite/world_data.sqlite";
+    private static final String SQLITE_URL = "jdbc:sqlite:data/sqlite/world_data.sqlite";
 
     private static ItemTemplate mapRow(ResultSet rs) throws SQLException {
         Map<Class<? extends ItemProfile>, ItemProfile> profiles = new HashMap<>();

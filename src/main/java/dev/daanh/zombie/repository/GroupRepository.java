@@ -1,6 +1,6 @@
 package dev.daanh.zombie.repository;
 
-import dev.daanh.zombie.domain.survivor.Group;
+import dev.daanh.zombie.domain.person.social.Group;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

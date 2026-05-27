@@ -1,0 +1,98 @@
+{
+  "GLOBAL_HOBBIES": {
+    "MECHANICS": [
+      {"itemId": "item_weapon_pipe_wrench", "min": 1, "max": 1, "chance": 80},
+      {"itemId": "item_weapon_claw_hammer", "min": 1, "max": 1, "chance": 50},
+      {"categoryId": "RESOURCE", "min": 2, "max": 5, "chance": 100}
+    ],
+    "COOKING": [
+      {"itemId": "item_weapon_kitchen_knife", "min": 1, "max": 1, "chance": 100},
+      {"itemId": "item_weapon_frying_pan", "min": 1, "max": 1, "chance": 40},
+      {"categoryId": "FOOD", "min": 2, "max": 4, "chance": 100}
+    ],
+    "HUNTING": [
+      {"itemId": "item_weapon_hunting_knife", "min": 1, "max": 1, "chance": 100},
+      {"categoryId": "AMMO", "min": 10, "max": 20, "chance": 80}
+    ],
+    "READING": [
+      {"categoryId": "LITERATURE", "min": 2, "max": 4, "chance": 100}
+    ],
+    "HIKING": [
+      {"categoryId": "CONTAINER", "min": 1, "max": 1, "chance": 90},
+      {"categoryId": "FOOD", "min": 1, "max": 3, "chance": 80}
+    ]
+  },
+  "ARCHETYPES": {
+    "PARAMILITARY": {
+      "POLICE_OFFICER": [
+        {"itemId": "item_weapon_9mm_pistol", "min": 1, "max": 1, "chance": 100},
+        {"itemId": "item_ammo_9mm_fmj", "min": 15, "max": 45, "chance": 100},
+        {"itemId": "item_weapon_baton_police", "min": 1, "max": 1, "chance": 30},
+        {"categoryId": "FOOD", "min": 1, "max": 2, "chance": 50}
+      ]
+    },
+    "ARMED_WESTERN": {
+      "POLICE_OFFICER": [
+        {"itemId": "item_weapon_9mm_pistol", "min": 1, "max": 1, "chance": 100},
+        {"itemId": "item_ammo_9mm_fmj", "min": 10, "max": 30, "chance": 100},
+        {"itemId": "item_weapon_baton_police", "min": 1, "max": 1, "chance": 80}
+      ]
+    },
+    "UNARMED_WESTERN": {
+      "POLICE_OFFICER": [
+        {"itemId": "item_weapon_baton_police", "min": 1, "max": 1, "chance": 100},
+        {"categoryId": "FOOD", "min": 1, "max": 2, "chance": 50}
+      ]
+    },
+    "NATO_STANDARD": {
+      "SOLDIER": [
+        {"itemId": "item_weapon_m4_carbine", "min": 1, "max": 1, "chance": 100},
+        {"itemId": "item_ammo_556", "min": 30, "max": 90, "chance": 100}
+      ]
+    },
+    "EASTERN_BLOC": {
+      "SOLDIER": [
+        {"itemId": "item_weapon_ak47", "min": 1, "max": 1, "chance": 100},
+        {"itemId": "item_ammo_762", "min": 30, "max": 90, "chance": 100}
+      ]
+    },
+    "CIVILIAN_FIREARMS": {
+      "UBIQUITOUS": [
+        {"categoryId": "WEAPON", "min": 1, "max": 1, "chance": 35}
+      ],
+      "HIGH": [
+        {"categoryId": "WEAPON", "min": 1, "max": 1, "chance": 15}
+      ],
+      "MODERATE": [
+        {"categoryId": "WEAPON", "min": 1, "max": 1, "chance": 5}
+      ]
+    },
+    "MEDICAL_INFRASTRUCTURE": {
+      "WORLD_CLASS": {
+        "DOCTOR": [
+          {"categoryId": "MEDICINE", "min": 5, "max": 10, "chance": 100},
+          {"itemId": "item_weapon_scalpel", "min": 1, "max": 1, "chance": 90}
+        ]
+      },
+      "POOR": {
+        "DOCTOR": [
+          {"categoryId": "MEDICINE", "min": 1, "max": 2, "chance": 100}
+        ]
+      }
+    }
+  },
+  "DEFAULT": {
+    "UNEMPLOYED": [
+      {"categoryId": "FOOD", "min": 1, "max": 3, "chance": 100},
+      {"categoryId": "CLOTHING", "min": 1, "max": 2, "chance": 100}
+    ],
+    "DOCTOR": [
+      {"categoryId": "MEDICINE", "min": 3, "max": 6, "chance": 100},
+      {"itemId": "item_weapon_scalpel", "min": 1, "max": 1, "chance": 80}
+    ],
+    "FARMER": [
+      {"itemId": "item_weapon_pitchfork", "min": 1, "max": 1, "chance": 50},
+      {"categoryId": "FOOD", "min": 4, "max": 8, "chance": 100}
+    ]
+  }
+}

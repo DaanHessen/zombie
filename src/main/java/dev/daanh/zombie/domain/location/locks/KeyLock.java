@@ -22,7 +22,7 @@ public class KeyLock extends Lock {
     private UUID keyId;
 
     public void unlock(UUID keyId) {
-        if (!this.accessProfile.isAccessible()) { return; }
+        if (!this.isAccessible()) { return; }
 
         if (this.keyId.equals(keyId)) {
             super.openLock();

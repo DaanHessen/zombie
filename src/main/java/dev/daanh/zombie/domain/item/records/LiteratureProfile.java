@@ -1,7 +1,7 @@
 package dev.daanh.zombie.domain.item.records;
 
 import dev.daanh.zombie.domain.item.ItemProfile;
-import dev.daanh.zombie.domain.survivor.enums.SkillType;
+import dev.daanh.zombie.domain.person.enums.SkillType;
 
 import java.util.Map;
 

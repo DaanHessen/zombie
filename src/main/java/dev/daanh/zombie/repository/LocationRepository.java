@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 @Repository
 public class LocationRepository {
-    private static final String SQLITE_URL = "jdbc:sqlite:src/main/resources/data/sqlite/world_data.sqlite";
+    private static final String SQLITE_URL = "jdbc:sqlite:data/sqlite/world_data.sqlite";
 
     private final OsmLocationFactory osmLocationFactory;
 

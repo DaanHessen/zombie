@@ -23,7 +23,7 @@ public class CodeLock extends Lock {
     private int codeLength;
 
     public void unlock(String code) {
-        if (!this.accessProfile.isAccessable()) { return; }
+        if (!this.isAccessible()) { return; }
 
         if (this.code.equals(code) && this.codeLength == code.length()) {
             super.openLock();

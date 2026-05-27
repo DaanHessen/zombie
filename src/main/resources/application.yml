@@ -1,18 +1,19 @@
 spring:
+  main:
+    web-application-type: servlet
   application:
     name: zombie
   
   datasource:
-    url: jdbc:postgresql://localhost:5432/zombiedb
-    username: postgres
-    password: postgres
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:sqlite:data/sqlite/world_data.sqlite
+    driver-class-name: org.sqlite.JDBC
     
   jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
     defer-datasource-initialization: true
     show-sql: false
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       format_sql: false
       hibernate:

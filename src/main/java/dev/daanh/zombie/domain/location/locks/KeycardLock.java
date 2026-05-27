@@ -25,7 +25,7 @@ public class KeycardLock extends Lock {
     private boolean requiresPower;
 
     public void unlock(UUID keycardId, int accessLevel) {
-        if (!this.accessProfile.isAccessable()) { return; }
+        if (!this.isAccessible()) { return; }
 
         UUID keycardUUID = UUID.fromString(this.keycardId);
 
